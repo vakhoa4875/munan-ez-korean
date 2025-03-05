@@ -1,22 +1,23 @@
-import { Button } from 'primereact/button';
-import { toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import './App.css';
-
+import AppRoutes from './routes/AppRoutes';
 
 function App() {
-
-  const toggleDarkMode = () => {
-    document.body.classList.toggle('dark-mode');
-    toast('Dark mode changed');
-  }
-
-  return (
-    <>
-      <div className='card h-screen flex justify-center items-center'>
-        <Button label="Toggle Dark Mode" onClick={toggleDarkMode} />
-      </div>
-    </>
-  )
+  return <>
+    <ToastContainer
+      position="top-right"
+      autoClose={3500}
+      hideProgressBar={false}
+      newestOnTop={false}
+      closeOnClick
+      rtl={false}
+      pauseOnFocusLoss
+      draggable
+      pauseOnHover
+      theme="light"
+    />
+    <AppRoutes />
+  </>;
 }
 
 export default App
