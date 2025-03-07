@@ -1,5 +1,6 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import 'primeicons/primeicons.css';
 import { lazy, Suspense } from "react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "../components/Layout"; // Main layout
 import Loading from "../components/Loading"; // Optional loading fallback
 

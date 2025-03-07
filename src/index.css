@@ -5,8 +5,18 @@
 @import 'primereact/resources/themes/tailwind-light/theme.css' layer(primereact);
 
 :root {
+  --font-gowun: 'Gowun Dodum', sans-serif;
   --background-color: #f2f2f2;
   --text-color: #333;
+  --primary-color: #a17410;
+  --highlight-text-color: #a17410;
+  --focus-ring: 0 0 0 1px #a17410;
+  --secondary-color: #f7d18d;
+  font-family: var(--font-gowun);
+}
+
+.none {
+  display: none!important;
 }
 
 body {
