@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Outlet } from "react-router-dom";
+import Footer from "./Footer";
 import { TopNavbar } from "./Navbar";
 import { RightSideBar } from "./Sidebar";
 
@@ -13,6 +14,7 @@ export default function Layout() {
       <div className="p-4 w-full">
         <Outlet />
       </div>
+      <Footer />
     </div>
   );
 }

@@ -10,13 +10,13 @@
 }
 
 .standard\:none {
-  @media (width >= 1366px) {
+  @media (width >=1366px) {
     display: none;
   }
 }
 
 .standard\:flex {
-  @media (width >= 1366px) {
+  @media (width >=1366px) {
     display: flex;
   }
 }
@@ -64,4 +64,8 @@
 
 .p-menubar .p-submenu-list {
   width: max-content !important;
+}
+
+.link-text:hover {
+  text-decoration: underline;
 }
