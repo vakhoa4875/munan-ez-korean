@@ -1,12 +1,17 @@
-import { Outlet, Link } from "react-router-dom";
-import Navbar from "./Navbar";
+import { useState } from "react";
+import { Outlet } from "react-router-dom";
+import { TopNavbar } from "./Navbar";
+import { RightSideBar } from "./Sidebar";
 
 export default function Layout() {
+  const [visible, setVisible] = useState(false);
+  const toggleSidebar = () => setVisible(!visible);
   return (
     <div className="min-h-screen flex flex-col">
-      <Navbar />
+      <RightSideBar visible={visible} toggleSidebar={toggleSidebar} />
+      <TopNavbar toggleSidebar={toggleSidebar} />
       <div className="p-4 w-full">
-        <Outlet /> {/* This renders child pages */}
+        <Outlet />
       </div>
     </div>
   );

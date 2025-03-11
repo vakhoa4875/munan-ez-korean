@@ -12,11 +12,13 @@
   --highlight-text-color: #a17410;
   --focus-ring: 0 0 0 1px #a17410;
   --secondary-color: #f7d18d;
+  --standard-view-width: 1366px;
+  --standard-view-height: 768px;
   font-family: var(--font-gowun);
 }
 
 .none {
-  display: none!important;
+  display: none !important;
 }
 
 body {
