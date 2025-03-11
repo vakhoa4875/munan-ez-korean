@@ -8,6 +8,7 @@ import Loading from "../components/Loading"; // Optional loading fallback
 const Home = lazy(() => import("../pages/Home"));
 const About = lazy(() => import("../pages/About"));
 const NotFound = lazy(() => import("../pages/NotFound"));
+const Login = lazy(() => import("../components/LoginForm"));
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,7 @@ const router = createBrowserRouter([
       { path: "about", element: <Suspense fallback={<Loading />}><About /></Suspense> },
     ],
   },
+  { path: "/login", element: <Suspense fallback={<Loading />}><Login /></Suspense> },
   { path: "*", element: <NotFound /> }, // 404 page
 ]);
 
