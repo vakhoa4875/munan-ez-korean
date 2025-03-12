@@ -3,6 +3,7 @@ import { Outlet } from "react-router-dom";
 import Footer from "./Footer";
 import { TopNavbar } from "./Navbar";
 import { RightSideBar } from "./Sidebar";
+import { ScrollTop } from "primereact/scrolltop";
 
 export default function Layout() {
   const [visible, setVisible] = useState(false);
@@ -11,9 +12,10 @@ export default function Layout() {
     <div className="min-h-screen flex flex-col">
       <RightSideBar visible={visible} toggleSidebar={toggleSidebar} />
       <TopNavbar toggleSidebar={toggleSidebar} />
-      <div className="p-4 w-full">
+      <div className="w-full">
         <Outlet />
       </div>
+      <ScrollTop />
       <Footer />
     </div>
   );
