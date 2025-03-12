@@ -22,10 +22,10 @@ const RegisterForm: React.FC = () => {
                         <InputText id="email" type="text" placeholder="Địa chỉ email" className="w-full p-2 border border-gray-300 rounded mb-3" />
 
                         <label htmlFor="password" className="block text-gray-900 font-medium mb-1 mt-2">Mật khẩu</label>
-                        <Password id="password" type="password" placeholder="Mật khẩu" className="w-full border-gray-300" footer={<></>} toggleMask />
+                        <Password id="password" type="password" placeholder="Mật khẩu" className="w-full border-gray-300" toggleMask />
 
                         <label htmlFor="password" className="block text-gray-900 font-medium mb-1 mt-2">Xác nhận mật khẩu</label>
-                        <Password id="confirmedPassword" type="password" placeholder="Mật khẩu" className="w-full border-gray-300" footer={<></>} toggleMask />
+                        <Password id="confirmedPassword" type="password" placeholder="Mật khẩu" className="w-full border-gray-300" toggleMask />
 
                         <Button label="Đăng ký" icon="pi pi-user" className="w-full btn-primary text-white p-2 rounded mt-5!" />
                     </div>
