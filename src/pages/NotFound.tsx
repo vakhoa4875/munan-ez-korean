@@ -1,10 +1,11 @@
-import { Link } from "react-router-dom";
+import { Section404 } from "@404pagez/react";
 
-export default function NotFound() {
+const NotFound = () => {
   return (
-    <div className="text-center">
-      <h1 className="text-3xl font-bold text-red-600">404 - Page Not Found</h1>
-      <Link to="/" className="text-blue-500 underline">Go Home</Link>
+    <div className="min-h-screen flex justify-center items-center">
+      <Section404 size={28} isButton={true} onButtonClick={() => { window.location.href = "/" }} buttonColor="#a17410" buttonLabel="Trang chủ" />
     </div>
   );
-}
+};
+
+export default NotFound;
