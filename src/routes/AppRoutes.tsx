@@ -3,6 +3,7 @@ import { lazy, Suspense } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "../components/Layout"; // Main layout
 import Loading from "../components/Loading"; // Optional loading fallback
+import RegisterForm from '../components/RegisterForm';
 
 // Lazy load pages for better performance
 const Home = lazy(() => import("../pages/Home"));
@@ -20,6 +21,7 @@ const router = createBrowserRouter([
     ],
   },
   { path: "/dang-nhap", element: <Suspense fallback={<Loading />}><Login /></Suspense> },
+  { path: "/dang-ki", element: <Suspense fallback={<Loading />}><RegisterForm /></Suspense> },
   { path: "*", element: <NotFound /> }, // 404 page
 ]);
 
