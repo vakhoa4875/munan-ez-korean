@@ -66,6 +66,16 @@
   width: max-content !important;
 }
 
+.link-text {
+  color: var(--primary-color);
+}
+
 .link-text:hover {
+  color: var(--sub-color);
   text-decoration: underline;
+}
+
+.p-checkbox.p-highlight .p-checkbox-box {
+  border-color: var(--primary-color);
+  background: var(--primary-color);
 }

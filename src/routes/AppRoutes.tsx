@@ -16,10 +16,10 @@ const router = createBrowserRouter([
     element: <Layout />, // Wrap pages with a layout
     children: [
       { index: true, element: <Suspense fallback={<Loading />}><Home /></Suspense> },
-      { path: "about", element: <Suspense fallback={<Loading />}><About /></Suspense> },
+      { path: "gioi-thieu", element: <Suspense fallback={<Loading />}><About /></Suspense> },
     ],
   },
-  { path: "/login", element: <Suspense fallback={<Loading />}><Login /></Suspense> },
+  { path: "/dang-nhap", element: <Suspense fallback={<Loading />}><Login /></Suspense> },
   { path: "*", element: <NotFound /> }, // 404 page
 ]);
 
