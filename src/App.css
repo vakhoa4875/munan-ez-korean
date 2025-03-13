@@ -21,7 +21,7 @@
   }
 }
 
-.transparent-button {
+.btn-transparent {
   background-color: transparent;
   border: none;
   padding: 10px 20px;
@@ -30,12 +30,12 @@
   color: #333;
 }
 
-.transparent-button:hover {
+.btn-transparent:hover {
   background-color: rgba(0, 0, 0, 0.1);
   color: #333;
 }
 
-.transparent-button:focus {
+.btn-transparent:focus {
   outline: none;
   box-shadow: none;
 }
@@ -78,4 +78,20 @@
 .p-checkbox.p-highlight .p-checkbox-box {
   border-color: var(--primary-color);
   background: var(--primary-color);
+}
+
+.p-password-panel {
+  display: none!important;
+}
+
+.p-input-icon {
+  display: flex!important;
+}
+
+.p-password-input, .p-icon-field {
+  width: 100% !important;
+}
+
+.p-link {
+  background-color: rgba(0, 0, 0, 0.3)!important;
 }

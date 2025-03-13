@@ -9,6 +9,9 @@ const Home = lazy(() => import("../pages/Home"));
 const About = lazy(() => import("../pages/About"));
 const NotFound = lazy(() => import("../pages/NotFound"));
 const Login = lazy(() => import("../components/LoginForm"));
+const RegisterForm = lazy(() => import("../components/RegisterForm"));
+const ResetPassword = lazy(() => import("../components/ResetPassword"));
+const ChangePassword = lazy(() => import("../components/ChangePassword"));
 
 const router = createBrowserRouter([
   {
@@ -20,6 +23,9 @@ const router = createBrowserRouter([
     ],
   },
   { path: "/dang-nhap", element: <Suspense fallback={<Loading />}><Login /></Suspense> },
+  { path: "/dang-ki", element: <Suspense fallback={<Loading />}><RegisterForm /></Suspense> },
+  { path: "/dat-lai-mat-khau", element: <Suspense fallback={<Loading />}><ResetPassword /></Suspense> },
+  { path: "/doi-mat-khau", element: <Suspense fallback={<Loading />}><ChangePassword /></Suspense> },
   { path: "*", element: <NotFound /> }, // 404 page
 ]);
 

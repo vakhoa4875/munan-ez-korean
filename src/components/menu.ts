@@ -101,3 +101,21 @@ export const menuItems: MenuItem[] = [
         url: '/lien-he'
     }
 ];
+
+export const avatarDropdownItems: MenuItem[] = [
+    {
+        label: 'Khóa học của tôi',
+        icon: 'pi pi-book',
+        url: '/khoa-hoc-cua-toi'
+    },
+    {
+        label: 'Thông tin cá nhân',
+        icon: 'pi pi-user',
+        url: '/thong-tin-ca-nhan'
+    },
+    {
+        label: 'Đăng xuất',
+        icon: 'pi pi-sign-out',
+        url: '/dang-xuat'
+    }
+];
