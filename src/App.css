@@ -93,5 +93,30 @@
 }
 
 .p-link {
-  background-color: rgba(0, 0, 0, 0.3)!important;
+  background-color: #a173109f!important;
+}
+
+.p-fieldset-legend {
+  margin-left: 1rem;
+  padding: 0.75rem;
+}
+
+.p-card-title {
+  font-size: 1rem;
+  text-align: left;
+  margin-bottom: 0!important;
+}
+
+.p-card-subtitle {
+  font-size: 0.875rem;
+  text-align: left;
+  margin-bottom: 0.325rem!important;
+}
+
+.p-card-content {
+  padding-block: 0.325rem!important;
+}
+
+.p-card-body {
+  padding: 0.875rem!important;
 }

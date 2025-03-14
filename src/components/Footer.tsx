@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export default function Footer() {
     return (
-        <footer className="py-4 text-[var(--primary-color)] bg-[var(--text-color)] mt-auto flex flex-col gap-2">
+        <footer className="py-4 text-[var(--primary-color)] bg-[var(--text-color)] mt-auto flex flex-col gap-2 rounded-t-md">
             <div className="flex flex-row justify-evenly w-full items-center">
                 <div className="flex flex-col text-left">
                     <div className="text-2xl font-bold mb-1">Khóa học dành cho bạn</div>
