@@ -10,7 +10,7 @@ export function TopNavbar({ toggleSidebar }: any) {
     const menuRight = useRef<Menu>(null);
 
     return (
-        <div className="flex justify-between items-center p-4 bg-white shadow-md md:flex">
+        <div className="flex justify-between items-center p-4 bg-white shadow-md md:flex rounded-b-md">
             <div className="items-center flex">
                 <Button icon="pi pi-bars" className="mr-2 flex standard:none btn-transparent" onClick={toggleSidebar} />
                 <img alt="logo" src="/circle-logo.png" className="mr-2 h-[40px] flex-none" />

@@ -72,7 +72,7 @@ body.dark-mode {
 }
 
 #section-404 {
-  @apply flex ! items-center justify-center;
+  @apply flex! items-center justify-center;
 }
 
 .section-icon {
