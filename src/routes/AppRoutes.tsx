@@ -7,6 +7,7 @@ import Loading from "../components/Loading"; // Optional loading fallback
 // Lazy load pages for better performance
 const Home = lazy(() => import("../pages/Home"));
 const About = lazy(() => import("../pages/About"));
+const Contact = lazy(() => import("../pages/Contact"));
 const NotFound = lazy(() => import("../pages/NotFound"));
 const Login = lazy(() => import("../components/LoginForm"));
 const RegisterForm = lazy(() => import("../components/RegisterForm"));
@@ -20,6 +21,7 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <Suspense fallback={<Loading />}><Home /></Suspense> },
       { path: "gioi-thieu", element: <Suspense fallback={<Loading />}><About /></Suspense> },
+      { path: "lien-he", element: <Suspense fallback={<Loading />}><Contact /></Suspense> },
     ],
   },
   { path: "/dang-nhap", element: <Suspense fallback={<Loading />}><Login /></Suspense> },
