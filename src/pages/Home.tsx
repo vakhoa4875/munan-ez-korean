@@ -1,6 +1,7 @@
 import AdvisingForm from "../components/AdvisingForm";
 import BlogShowcase from "../components/BlogShowcase";
 import Carousel from "../components/Carousel";
+import { StudentFeedback } from "../components/StudentFeedback";
 
 export default function Home() {
   return (
@@ -11,15 +12,15 @@ export default function Home() {
       <img src="/4.webp" className="rounded-md" alt="" />
       <img src="/5.webp" className="rounded-md" alt="" />
       <div className="mt-3">
-        <div className="text-3xl font-bold text-center text-[var(--text-color)]">Thư viện Hàn Ngữ Munan</div>
+        <div className="text-3xl font-bold text-center text-[var(--text-color)] mb-1">Thư viện Hàn Ngữ Munan</div>
         <BlogShowcase />
-      </div>
-      <div className="mt-3">
-        <div className="text-3xl font-bold text-center text-[var(--text-color)]">Cảm nhận học viên</div>
-        
       </div>
       <img src="/6.webp" className="rounded-md" alt="" />
       <AdvisingForm />
+      <div className="mt-3">
+        <div className="text-3xl font-bold text-center text-[var(--text-color)] mb-1">Cảm nhận học viên</div>
+        <StudentFeedback />
+      </div>
     </div>
   )
 }
