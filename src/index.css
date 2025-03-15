@@ -4,6 +4,7 @@
 
 @import 'primereact/resources/themes/tailwind-light/theme.css' layer(primereact);
 
+/* Root Variables */
 :root {
   --font-gowun: 'Gowun Dodum', sans-serif;
   --background-color: #f2f2f2;
@@ -18,32 +19,36 @@
   font-family: var(--font-gowun);
 }
 
+/* Utility Classes */
 .none {
   display: none !important;
 }
 
+/* Body Styles */
 body {
   background-color: var(--background-color);
   color: var(--text-color);
 }
 
-/* Light mode */
+/* Light Mode */
 body.light-mode {
   background-color: var(--background-color);
   color: var(--text-color);
 }
 
-/* Dark mode */
+/* Dark Mode */
 body.dark-mode {
   background-color: var(--text-color);
   color: var(--background-color);
 }
 
+/* Input Styles */
 .input-rounded-s-md {
   border-radius: 0;
   @apply rounded-s-md;
 }
 
+/* Button Styles */
 .btn-rounded-e-md {
   border-radius: 0;
   @apply rounded-e-md;
@@ -71,10 +76,12 @@ body.dark-mode {
   box-shadow: 0 0 0 0.2rem var(--sub-color);
 }
 
+/* Section 404 Styles */
 #section-404 {
   @apply flex! items-center justify-center;
 }
 
+/* Section Icon Styles */
 .section-icon {
   background-color: var(--primary-color) !important;
 }

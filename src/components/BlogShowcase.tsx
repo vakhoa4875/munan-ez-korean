@@ -1,4 +1,3 @@
-
 import { Card } from 'primereact/card';
 import { Carousel } from 'primereact/carousel';
 import { ScrollPanel } from 'primereact/scrollpanel';
@@ -60,10 +59,10 @@ export default function BlogShowcase() {
 
     return (
         <div className="card">
-            <Carousel value={blogThumbnails} numScroll={1} numVisible={3}
+            <Carousel value={blogThumbnails} numScroll={1} numVisible={4}
                 responsiveOptions={responsiveOptions} itemTemplate={blogThumbnailTemplate} />
         </div>
-    )
+    );
 }
 
 export const blogThumbnailData: BlogThumbnail[] = [
@@ -109,4 +108,5 @@ Tại No-IP.com, tên miền được đăng ký trong một khoảng thời gia
         thumbnail: '/blog5.webp',
         date: '5 ngày trước',
         views: 500
-    },];
+    }
+];

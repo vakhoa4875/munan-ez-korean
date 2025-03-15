@@ -58,10 +58,10 @@ export function StudentFeedback() {
 
     return (
         <div className="card">
-            <Carousel value={feedbacks} numScroll={1} numVisible={3}
+            <Carousel value={feedbacks} numScroll={1} numVisible={4}
                 responsiveOptions={responsiveOptions} itemTemplate={feedbackTemplate} />
         </div>
-    )
+    );
 }
 
 export const feedbackData: Feedback[] = [

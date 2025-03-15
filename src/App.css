@@ -1,3 +1,4 @@
+/* General Styles */
 .p-badge {
   background-color: var(--primary-color);
 }
@@ -9,6 +10,7 @@
   border-color: var(--primary-color);
 }
 
+/* Standard Viewport Styles */
 .standard\:none {
   @media (width >=1366px) {
     display: none;
@@ -21,6 +23,7 @@
   }
 }
 
+/* Button Styles */
 .btn-transparent {
   background-color: transparent;
   border: none;
@@ -40,9 +43,9 @@
   box-shadow: none;
 }
 
+/* Panel Menu Styles */
 .p-panelmenu .p-panelmenu-header .p-panelmenu-header-content {
   border: none !important;
-  /* color: #3f3f46; */
   background: white;
   border-radius: 0.375rem;
   transition: none;
@@ -52,20 +55,18 @@
   border: none !important;
 }
 
+/* Menubar Styles */
 .p-menubar {
   border: none !important;
   background-color: white !important;
   padding: 0 !important;
 }
 
-.p-highlight {
-  font-weight: normal !important;
-}
-
 .p-menubar .p-submenu-list {
   width: max-content !important;
 }
 
+/* Link Styles */
 .link-text {
   color: var(--primary-color);
 }
@@ -75,48 +76,53 @@
   text-decoration: underline;
 }
 
+/* Checkbox Styles */
 .p-checkbox.p-highlight .p-checkbox-box {
   border-color: var(--primary-color);
   background: var(--primary-color);
 }
 
+/* Password Panel Styles */
 .p-password-panel {
-  display: none!important;
+  display: none !important;
 }
 
 .p-input-icon {
-  display: flex!important;
+  display: flex !important;
 }
 
 .p-password-input, .p-icon-field {
   width: 100% !important;
 }
 
+/* Link Styles */
 .p-link {
-  background-color: #a173109f!important;
+  background-color: #a173109f !important;
 }
 
+/* Fieldset Styles */
 .p-fieldset-legend {
   margin-left: 1rem;
   padding: 0.75rem;
 }
 
+/* Card Styles */
 .p-card-title {
   font-size: 1rem;
   text-align: left;
-  margin-bottom: 0!important;
+  margin-bottom: 0 !important;
 }
 
 .p-card-subtitle {
   font-size: 0.875rem;
   text-align: left;
-  margin-bottom: 0.325rem!important;
+  margin-bottom: 0.325rem !important;
 }
 
 .p-card-content {
-  padding-block: 0.325rem!important;
+  padding-block: 0.325rem !important;
 }
 
 .p-card-body {
-  padding: 0.875rem!important;
+  padding: 0.875rem !important;
 }

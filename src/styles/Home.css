@@ -1,0 +1,87 @@
+.floating-buttons {
+    position: fixed;
+    top: 50vh;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* Adjusted gap */
+}
+
+.floating-button {
+    background-color: transparent !important;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+}
+
+.floating-button:hover {
+    transform: scale(1.1);
+}
+
+.floating-button.tiktok {
+    color: #000;
+}
+
+.floating-button.facebook {
+    color: #1877f2;
+}
+
+.floating-button.zalo {
+    color: #0084ff;
+}
+
+@keyframes fancyShake {
+
+    0%,
+    100% {
+        transform: translateX(0) rotate(0deg) scale(1);
+    }
+
+    10% {
+        transform: translateX(-5px) rotate(-5deg) scale(1.1);
+    }
+
+    20% {
+        transform: translateX(5px) rotate(5deg) scale(1.1);
+    }
+
+    30% {
+        transform: translateX(-5px) rotate(-5deg) scale(1.1);
+    }
+
+    40% {
+        transform: translateX(5px) rotate(5deg) scale(1.1);
+    }
+
+    50% {
+        transform: translateX(-5px) rotate(-5deg) scale(1.1);
+    }
+
+    60% {
+        transform: translateX(5px) rotate(5deg) scale(1.1);
+    }
+
+    70% {
+        transform: translateX(-5px) rotate(-5deg) scale(1.1);
+    }
+
+    80% {
+        transform: translateX(5px) rotate(5deg) scale(1.1);
+    }
+
+    90% {
+        transform: translateX(-5px) rotate(-5deg) scale(1.1);
+    }
+}
+
+.floating-button {
+    animation: fancyShake 1.25s infinite;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}

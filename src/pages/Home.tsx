@@ -1,7 +1,10 @@
+// filepath: d:\download\src-code\munan-ez-korean\src\pages\Home.tsx
 import AdvisingForm from "../components/AdvisingForm";
 import BlogShowcase from "../components/BlogShowcase";
 import Carousel from "../components/Carousel";
+import FloatingButtons from "../components/FloatingButtons";
 import { StudentFeedback } from "../components/StudentFeedback";
+import '../styles/Home.css';
 
 export default function Home() {
   return (
@@ -21,6 +24,7 @@ export default function Home() {
         <div className="text-3xl font-bold text-center text-[var(--text-color)] mb-1">Cảm nhận học viên</div>
         <StudentFeedback />
       </div>
+      <FloatingButtons />
     </div>
-  )
+  );
 }
