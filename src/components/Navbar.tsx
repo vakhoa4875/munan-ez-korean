@@ -19,7 +19,7 @@ export function TopNavbar({ toggleSidebar }: any) {
                 <Menubar model={menuItems} />
             </div>
             <div className="flex items-center gap-2 ml-2">
-                <InputText placeholder="Tìm kiếm..." type="text" className="w-8rem sm:w-auto" />
+                <InputText placeholder="Tìm kiếm..." type="text" className="w-8rem sm:w-auto hidden standard:flex" />
                 <Avatar icon="pi pi-user" shape="circle" onClick={(event) => menuRight.current?.toggle(event)} aria-controls="popup_menu_right" aria-haspopup />
                 <Menu model={avatarDropdownItems} popup ref={menuRight} id="popup_menu_right" popupAlignment="right" />
             </div>

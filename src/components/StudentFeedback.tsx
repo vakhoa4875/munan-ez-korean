@@ -57,11 +57,21 @@ export function StudentFeedback() {
     };
 
     return (
-        <div className="card">
-            <Carousel value={feedbacks} numScroll={1} numVisible={4}
+        <div className="card mx-auto">
+            <Carousel value={feedbacks} numScroll={1} numVisible={4} circular
                 responsiveOptions={responsiveOptions} itemTemplate={feedbackTemplate} />
         </div>
     );
+}
+
+export const HomepageFeedback = () => {
+    return (
+
+        <div className="mt-3 max-w-full">
+            <div className="text-3xl font-bold text-center text-[var(--text-color)] mb-1">Cảm nhận học viên</div>
+            <StudentFeedback />
+        </div>
+    )
 }
 
 export const feedbackData: Feedback[] = [

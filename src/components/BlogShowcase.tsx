@@ -58,9 +58,18 @@ export default function BlogShowcase() {
     };
 
     return (
-        <div className="card">
-            <Carousel value={blogThumbnails} numScroll={1} numVisible={4}
+        <div className="card mx-auto">
+            <Carousel value={blogThumbnails} numScroll={1} numVisible={4} circular
                 responsiveOptions={responsiveOptions} itemTemplate={blogThumbnailTemplate} />
+        </div>
+    );
+}
+
+export const HomepageBlogShowcase = () => {
+    return (
+        <div className="mt-3 max-w-full">
+            <div className="text-3xl font-bold text-center text-[var(--text-color)] mb-1">Bài viết mới</div>
+            <BlogShowcase />
         </div>
     );
 }
