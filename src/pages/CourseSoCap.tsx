@@ -16,7 +16,7 @@ export default function CourseSoCap() {
           Lớp Tiếng Hàn Sơ Cấp - Hàn Ngữ Munan
         </h1>
         <img
-          src="../../src/assets/tieng-han-khong-kho-1.png"
+          src="/Gif 4 - Munan.gif"
           alt="Hàn Ngữ Munan"
           className="my-6 mx-auto animate__animated animate__fadeIn rounded-lg shadow-lg"
         />
@@ -54,7 +54,7 @@ export default function CourseSoCap() {
         </ul>
 
         <img
-          src="../../src/assets/tieng-han-khong-kho.png"
+          src="/Gif 5 - Munan.gif"
           alt="Tiếng Hàn Không Khó"
           className="my-6 mx-auto animate__animated animate__fadeIn rounded-lg shadow-lg"
         />
@@ -109,7 +109,7 @@ export default function CourseSoCap() {
 
       <div className="w-full lg:w-3/12 p-4">
         <div className="border p-4 animate__animated animate__fadeIn">
-          <img src="../../src/assets/logo.jpg" alt="logo Hàn Ngữ Munan" />
+          <img src="/logo.jpg" alt="logo Hàn Ngữ Munan" />
         </div>
 
         <div className="border p-4 mt-4 animate__animated animate__fadeIn">
@@ -118,7 +118,7 @@ export default function CourseSoCap() {
           </h2>
           <div className="flex items-center mb-4 animate__animated animate__fadeIn hover:animate__pulse">
             <img
-              src="../../src/assets/news1.png"
+              src="/news1.png"
               alt="news 1"
               className="w-16 h-16 object-cover mr-4"
             />
@@ -134,7 +134,7 @@ export default function CourseSoCap() {
           <hr className="border-t border-gray-200 my-2 animate__animated animate__fadeIn" />
           <div className="flex items-center mb-4 animate__animated animate__fadeIn hover:animate__pulse">
             <img
-              src="../../src/assets/news1.png"
+              src="/news1.png"
               alt="news 2"
               className="w-16 h-16 object-cover mr-4"
             />
@@ -150,7 +150,7 @@ export default function CourseSoCap() {
           <hr className="border-t border-gray-200 my-2 animate__animated animate__fadeIn" />
           <div className="flex items-center mb-4 animate__animated animate__fadeIn hover:animate__pulse">
             <img
-              src="../../src/assets/news1.png"
+              src="/news1.png"
               alt="news 3"
               className="w-16 h-16 object-cover mr-4"
             />

@@ -21,7 +21,7 @@ export default function About() {
           Hàn Ngữ Munan
         </h1>
         <img
-          src="../../src/assets/232216-1.png"
+          src="/Hình 1 - Munan.png"
           alt="Hàn Ngữ Munan"
           className="my-4 mx-auto animate__animated animate__fadeIn"
         />
@@ -50,7 +50,7 @@ export default function About() {
           làm, chỉ đáng bằng 1 có trà sữa cho mỗi buổi học.
         </p>
         <img
-          src="../../src/assets/232215-2.png"
+          src="public/Hình 3 - Munan.png"
           alt="Hàn Ngữ Munan"
           className="my-4 mx-auto animate__animated animate__fadeIn"
         />
@@ -112,7 +112,7 @@ export default function About() {
           không biết ngôn ngữ nào.
         </p>
         <img
-          src="../../src/assets/232415-3.png"
+          src="public/Hình 2 - Munan.png"
           alt="Hàn Ngữ Munan"
           className="my-4 mx-auto animate__animated animate__fadeIn"
         />
@@ -211,14 +211,14 @@ export default function About() {
 
       <div className="w-full lg:w-3/12 p-4">
         <div className="border p-4 animate__animated animate__fadeIn">
-          <img src="../../src/assets/logo.jpg" alt="logo Hàn Ngữ Munan" />
+          <img src="/logo.jpg" alt="logo Hàn Ngữ Munan" />
         </div>
 
         <div className="border p-4 mt-4 animate__animated animate__fadeIn">
           <h2 className="text-xl font-bold mb-4 text-primary-color">TIN CHO BẠN</h2>
           <div className="flex items-center mb-4 animate__animated animate__fadeIn hover:animate__pulse">
             <img
-              src="../../src/assets/news1.png"
+              src="/news1.png"
               alt="news 1"
               className="w-16 h-16 object-cover mr-4"
             />
@@ -232,7 +232,7 @@ export default function About() {
           <hr className="border-t border-gray-200 my-2 animate__animated animate__fadeIn" />
           <div className="flex items-center mb-4 animate__animated animate__fadeIn hover:animate__pulse">
             <img
-              src="../../src/assets/news1.png"
+              src="/news1.png"
               alt="news 2"
               className="w-16 h-16 object-cover mr-4"
             />
@@ -246,7 +246,7 @@ export default function About() {
           <hr className="border-t border-gray-200 my-2 animate__animated animate__fadeIn" />
           <div className="flex items-center mb-4 animate__animated animate__fadeIn hover:animate__pulse">
             <img
-              src="../../src/assets/news1.png"
+              src="/news1.png"
               alt="news 3"
               className="w-16 h-16 object-cover mr-4"
             />
