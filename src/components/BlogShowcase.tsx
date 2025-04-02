@@ -14,7 +14,7 @@ export type BlogThumbnail = {
 }
 
 export default function BlogShowcase() {
-    const [blogThumbnails, setBlogThumbnails] = useState<BlogThumbnail[]>(blogThumbnailData);
+    const [blogThumbnails] = useState<BlogThumbnail[]>(blogThumbnailData);
     const responsiveOptions = [
         {
             breakpoint: '1400px',
