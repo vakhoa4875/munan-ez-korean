@@ -4,42 +4,42 @@ import { FaCalendarAlt, FaEye } from "react-icons/fa";
 export default function KoreanVocabulary() {
   const vocabularyCards = [
     {
-      image: "../../src/assets/tieng-han-khong-kho-1.png",
+      image: "/news1.png",
       title: "Từ vựng tiếng Hàn về chủ đề gia đình",
       date: "01/04/2025",
       views: 1200,
       description: "Học từ vựng tiếng Hàn về các thành viên trong gia đình, cách gọi thân mật và trang trọng.",
     },
     {
-      image: "../../src/assets/tieng-han-khong-kho-1.png",
+      image: "/news1.png",
       title: "Từ vựng tiếng Hàn về chủ đề công việc",
       date: "28/03/2025",
       views: 950,
       description: "Khám phá các từ vựng liên quan đến công việc, văn phòng và giao tiếp nơi làm việc.",
     },
     {
-      image: "../../src/assets/tieng-han-khong-kho-1.png",
+      image: "/news1.png",
       title: "Từ vựng tiếng Hàn về chủ đề du lịch",
       date: "15/03/2025",
       views: 1350,
       description: "Tìm hiểu từ vựng tiếng Hàn cần thiết khi đi du lịch, đặt phòng khách sạn và hỏi đường.",
     },
     {
-      image: "../../src/assets/tieng-han-khong-kho-1.png",
+      image: "/news1.png",
       title: "Từ vựng tiếng Hàn về chủ đề du lịch",
       date: "15/03/2025",
       views: 1350,
       description: "Tìm hiểu từ vựng tiếng Hàn cần thiết khi đi du lịch, đặt phòng khách sạn và hỏi đường.",
     },
     {
-      image: "../../src/assets/tieng-han-khong-kho-1.png",
+      image: "/news1.png",
       title: "Từ vựng tiếng Hàn về chủ đề du lịch",
       date: "15/03/2025",
       views: 1350,
       description: "Tìm hiểu từ vựng tiếng Hàn cần thiết khi đi du lịch, đặt phòng khách sạn và hỏi đường.",
     },
     {
-      image: "../../src/assets/tieng-han-khong-kho-1.png",
+      image: "/news1.png",
       title: "Từ vựng tiếng Hàn về chủ đề du lịch",
       date: "15/03/2025",
       views: 1350,
@@ -81,7 +81,7 @@ export default function KoreanVocabulary() {
 
       <div className="w-full lg:w-3/12 p-4">
         <div className="border p-4 animate__animated animate__fadeIn">
-          <img src="../../src/assets/logo.jpg" alt="logo Hàn Ngữ Munan" />
+          <img src="/logo.jpg" alt="logo Hàn Ngữ Munan" />
         </div>
 
         <div className="border p-4 mt-4 animate__animated animate__fadeIn">
@@ -90,7 +90,7 @@ export default function KoreanVocabulary() {
           </h2>
           <div className="flex items-center mb-4 animate__animated animate__fadeIn hover:animate__pulse">
             <img
-              src="../../src/assets/news1.png"
+              src="/news1.png"
               alt="news 1"
               className="w-16 h-16 object-cover mr-4"
             />
@@ -106,7 +106,7 @@ export default function KoreanVocabulary() {
           <hr className="border-t border-gray-200 my-2 animate__animated animate__fadeIn" />
           <div className="flex items-center mb-4 animate__animated animate__fadeIn hover:animate__pulse">
             <img
-              src="../../src/assets/news1.png"
+              src="/news1.png"
               alt="news 2"
               className="w-16 h-16 object-cover mr-4"
             />
@@ -122,7 +122,7 @@ export default function KoreanVocabulary() {
           <hr className="border-t border-gray-200 my-2 animate__animated animate__fadeIn" />
           <div className="flex items-center mb-4 animate__animated animate__fadeIn hover:animate__pulse">
             <img
-              src="../../src/assets/news1.png"
+              src="/news1.png"
               alt="news 3"
               className="w-16 h-16 object-cover mr-4"
             />
