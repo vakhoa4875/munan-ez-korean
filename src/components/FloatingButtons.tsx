@@ -4,6 +4,9 @@ import '../styles/Home.css';
 export default function FloatingButtons() {
   return (
     <div className="floating-buttons">
+      <Link to="https://www.youtube.com" target="_blank" rel="noopener noreferrer" className="floating-button youtube">
+        <img src="/youtube.png" alt="YouTube" />
+      </Link>
       <Link to="https://www.tiktok.com" target="_blank" rel="noopener noreferrer" className="floating-button tiktok">
         <img src="/tik-tok.png" alt="TikTok" />
       </Link>

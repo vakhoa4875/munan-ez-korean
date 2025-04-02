@@ -15,7 +15,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); */
     transition: transform 0.3s;
 }
 
@@ -34,53 +34,50 @@
 .floating-button.zalo {
     color: #0084ff;
 }
-
 @keyframes fancyShake {
-
-    0%,
-    100% {
+    0%, 100% {
         transform: translateX(0) rotate(0deg) scale(1);
     }
 
     10% {
-        transform: translateX(-5px) rotate(-5deg) scale(1.1);
+        transform: translateX(-3px) rotate(-3deg) scale(1.05);
     }
 
     20% {
-        transform: translateX(5px) rotate(5deg) scale(1.1);
+        transform: translateX(3px) rotate(3deg) scale(1.05);
     }
 
     30% {
-        transform: translateX(-5px) rotate(-5deg) scale(1.1);
+        transform: translateX(-3px) rotate(-3deg) scale(1.05);
     }
 
     40% {
-        transform: translateX(5px) rotate(5deg) scale(1.1);
+        transform: translateX(3px) rotate(3deg) scale(1.05);
     }
 
     50% {
-        transform: translateX(-5px) rotate(-5deg) scale(1.1);
+        transform: translateX(-3px) rotate(-3deg) scale(1.05);
     }
 
     60% {
-        transform: translateX(5px) rotate(5deg) scale(1.1);
+        transform: translateX(3px) rotate(3deg) scale(1.05);
     }
 
     70% {
-        transform: translateX(-5px) rotate(-5deg) scale(1.1);
+        transform: translateX(-3px) rotate(-3deg) scale(1.05);
     }
 
     80% {
-        transform: translateX(5px) rotate(5deg) scale(1.1);
+        transform: translateX(3px) rotate(3deg) scale(1.05);
     }
 
     90% {
-        transform: translateX(-5px) rotate(-5deg) scale(1.1);
+        transform: translateX(-3px) rotate(-3deg) scale(1.05);
     }
 }
 
 .floating-button {
-    animation: fancyShake 1.25s infinite;
+    animation: fancyShake 1.75s infinite; /* Increased duration for slower animation */
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
     animation-direction: alternate;

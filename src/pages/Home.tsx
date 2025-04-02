@@ -9,11 +9,11 @@ export default function Home() {
   return (
     <div className="flex justify-center items-center bg-white flex-col gap-3">
       <Carousel />
-      <img src="/2.gif" className="rounded-md" alt="" />
-      <img src="/3.gif" className="rounded-md" alt="" />
-      <img src="/4.webp" className="rounded-md" alt="" />
-      <img src="/5.webp" className="rounded-md" alt="" />
-      <img src="/6.webp" className="rounded-md" alt="" />
+      <img src="/Gif 4 - Munan.gif" className="rounded-md" alt="" />
+      <img src="/Gif 5 - Munan.gif" className="rounded-md" alt="" />
+      <img src="/Hình 6 - Munan.png" className="rounded-md" alt="" />
+      <img src="/Hình 7 - Munan.png" className="rounded-md" alt="" />
+      <img src="/Hình 8 - Munan.png" className="rounded-md" alt="" />
       <HomepageBlogShowcase />
       <AdvisingForm />
       <HomepageFeedback />

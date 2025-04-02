@@ -82,7 +82,7 @@ export const blogThumbnailData: BlogThumbnail[] = [
 ChatGPT said:
 
 Tại No-IP.com, tên miền được đăng ký trong một khoảng thời gian cố định và sẽ tự động gia hạn thêm một năm trước 30 ngày so với ngày hết hạn của dịch vụ. Việc gia hạn sẽ tiếp tục theo khoảng thời gian này cho đến khi Bạn hủy dịch vụ.`,
-        thumbnail: '/blog1.webp',
+        thumbnail: '/blogHình 1 - Munan.png',
         date: '1 ngày trước',
         views: 100
     },
@@ -106,7 +106,7 @@ Tại No-IP.com, tên miền được đăng ký trong một khoảng thời gia
         id: '4',
         title: 'Học tiếng Hàn cùng Hàn Ngữ Munan',
         summary: 'Học tiếng Hàn cùng Hàn Ngữ Munan',
-        thumbnail: '/blog4.webp',
+        thumbnail: '/blogHình 6 - Munan.png',
         date: '4 ngày trước',
         views: 400
     },
@@ -114,7 +114,7 @@ Tại No-IP.com, tên miền được đăng ký trong một khoảng thời gia
         id: '5',
         title: 'Học tiếng Hàn cùng Hàn Ngữ Munan',
         summary: 'Học tiếng Hàn cùng Hàn Ngữ Munan',
-        thumbnail: '/blog5.webp',
+        thumbnail: '/blogHình 7 - Munan.png',
         date: '5 ngày trước',
         views: 500
     }

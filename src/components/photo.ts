@@ -6,18 +6,18 @@ export type Photo = {
 
 export const photos : Photo[] = [
     {
-        itemImageSrc: "/1.webp",
-        thumbnailImageSrc: "/1.webp",
+        itemImageSrc: "/Hình 1 - Munan.png",
+        thumbnailImageSrc: "/Hình 1 - Munan.png",
         alt: "Carousel 1",
     },
     {
-        itemImageSrc: "/carousel-2.webp",
-        thumbnailImageSrc: "/carousel-2.webp",
+        itemImageSrc: "/Hình 3 - Munan.png",
+        thumbnailImageSrc: "/Hình 3 - Munan.png",
         alt: "Carousel 2",
     },
     {
-        itemImageSrc: "/carousel-3.webp",
-        thumbnailImageSrc: "/carousel-3.webp",
+        itemImageSrc: "/Hình 2 - Munan.png",
+        thumbnailImageSrc: "/Hình 2 - Munan.png",
         alt: "Carousel 3",
     },
 ];
