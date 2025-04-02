@@ -1,13 +1,6 @@
 import "animate.css";
-import { InputText } from "primereact/inputtext";
-import { InputTextarea } from "primereact/inputtextarea";
 import { Button } from "primereact/button";
 import {
-  FaFacebook,
-  FaTwitter,
-  FaLinkedin,
-  FaPinterest,
-  FaTumblr,
   FaCalendarAlt,
 } from "react-icons/fa";
 import "animate.css";
