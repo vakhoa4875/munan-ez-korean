@@ -8,6 +8,11 @@ import Loading from "../components/Loading"; // Optional loading fallback
 const Home = lazy(() => import("../pages/Home"));
 const About = lazy(() => import("../pages/About"));
 const Contact = lazy(() => import("../pages/Contact"));
+const CourseSoCap = lazy(() => import("../pages/CourseSoCap"));
+const CourseTrungCap = lazy(() => import("../pages/CourseTrungCap"));
+const CourseCaoCap = lazy(() => import("../pages/CourseCaoCap"));
+
+const KoreanVocabulary = lazy(() => import("../pages/KoreanVocabulary"));
 const NotFound = lazy(() => import("../pages/NotFound"));
 const Login = lazy(() => import("../components/LoginForm"));
 const RegisterForm = lazy(() => import("../components/RegisterForm"));
@@ -22,6 +27,12 @@ const router = createBrowserRouter([
       { index: true, element: <Suspense fallback={<Loading />}><Home /></Suspense> },
       { path: "gioi-thieu", element: <Suspense fallback={<Loading />}><About /></Suspense> },
       { path: "lien-he", element: <Suspense fallback={<Loading />}><Contact /></Suspense> },
+      { path: "khoa-hoc/tieng-han-so-cap", element: <Suspense fallback={<Loading />}><CourseSoCap /></Suspense> },
+      { path: "khoa-hoc/tieng-han-trung-cap", element: <Suspense fallback={<Loading />}><CourseTrungCap /></Suspense> },
+      { path: "khoa-hoc/tieng-han-cao-cap", element: <Suspense fallback={<Loading />}><CourseCaoCap /></Suspense> },
+
+
+      { path: "tu-vung-tieng-han", element: <Suspense fallback={<Loading />}><KoreanVocabulary /></Suspense> },
     ],
   },
   { path: "/dang-nhap", element: <Suspense fallback={<Loading />}><Login /></Suspense> },

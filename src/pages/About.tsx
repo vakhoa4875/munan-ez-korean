@@ -16,8 +16,7 @@ export default function About() {
           Giới thiệu
         </h1>
         <h1
-          className="text-3xl text-center uppercase animate__animated animate__fadeIn"
-          style={{ color: "var(--primary-color)", fontWeight: "900" }}
+          className="text-3xl text-center uppercase animate__animated animate__fadeIn text-{var(--primary-color)} font-bold"
         >
           Hàn Ngữ Munan
         </h1>
