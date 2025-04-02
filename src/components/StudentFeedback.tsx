@@ -12,7 +12,7 @@ export type Feedback = {
 }
 
 export function StudentFeedback() {
-    const [feedbacks, setFeedbacks] = useState<Feedback[]>(feedbackData);
+    const [feedbacks] = useState<Feedback[]>(feedbackData);
     const responsiveOptions = [
         {
             breakpoint: '1400px',
