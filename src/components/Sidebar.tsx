@@ -2,7 +2,7 @@
 import { InputText } from 'primereact/inputtext';
 import { PanelMenu } from 'primereact/panelmenu';
 import { Sidebar } from 'primereact/sidebar';
-import { menuItems } from './menu';
+import { menuItems } from '@/data/menu';
 
 export function RightSideBar({ visible, toggleSidebar }: any) {
     return (

@@ -1,7 +1,7 @@
 
 import { Galleria } from 'primereact/galleria';
 import { useState } from 'react';
-import { Photo, photos } from './photo';
+import { Photo, photos } from '@/data/photo';
 
 export default function Carousel() {
     const [images] = useState<Photo[]>(photos);

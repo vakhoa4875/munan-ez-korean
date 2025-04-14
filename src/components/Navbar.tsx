@@ -4,7 +4,7 @@ import { InputText } from 'primereact/inputtext';
 import { Menu } from 'primereact/menu';
 import { Menubar } from 'primereact/menubar';
 import { useRef } from 'react';
-import { avatarDropdownItems, menuItems } from './menu';
+import { avatarDropdownItems, menuItems } from '@/data/menu';
 
 export function TopNavbar({ toggleSidebar }: any) {
     const menuRight = useRef<Menu>(null);

@@ -1,23 +1,23 @@
 import 'primeicons/primeicons.css';
 import { lazy, Suspense } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Layout from "../components/Layout"; // Main layout
-import Loading from "../components/Loading"; // Optional loading fallback
+import Layout from "@/components/Layout"; // Main layout
+import Loading from "@/components/Loading"; // Optional loading fallback
 
 // Lazy load pages for better performance
-const Home = lazy(() => import("../pages/Home"));
-const About = lazy(() => import("../pages/About"));
-const Contact = lazy(() => import("../pages/Contact"));
-const CourseSoCap = lazy(() => import("../pages/CourseSoCap"));
-const CourseTrungCap = lazy(() => import("../pages/CourseTrungCap"));
-const CourseCaoCap = lazy(() => import("../pages/CourseCaoCap"));
+const Home = lazy(() => import("@/pages/Home"));
+const About = lazy(() => import("@/pages/About"));
+const Contact = lazy(() => import("@/pages/Contact"));
+const CourseSoCap = lazy(() => import("@/pages/CourseSoCap"));
+const CourseTrungCap = lazy(() => import("@/pages/CourseTrungCap"));
+const CourseCaoCap = lazy(() => import("@/pages/CourseCaoCap"));
 
-const KoreanVocabulary = lazy(() => import("../pages/KoreanVocabulary"));
-const NotFound = lazy(() => import("../pages/NotFound"));
-const Login = lazy(() => import("../components/LoginForm"));
-const RegisterForm = lazy(() => import("../components/RegisterForm"));
-const ResetPassword = lazy(() => import("../components/ResetPassword"));
-const ChangePassword = lazy(() => import("../components/ChangePassword"));
+const KoreanVocabulary = lazy(() => import("@/pages/KoreanVocabulary"));
+const NotFound = lazy(() => import("@/pages/NotFound"));
+const Login = lazy(() => import("@/modules/auth/components/LoginForm"));
+const RegisterForm = lazy(() => import("@/modules/auth/components/RegisterForm"));
+const ResetPassword = lazy(() => import("@/modules/auth/components/ResetPassword"));
+const ChangePassword = lazy(() => import("@/modules/auth/components/ChangePassword"));
 
 const router = createBrowserRouter([
   {

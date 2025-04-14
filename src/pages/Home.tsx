@@ -1,9 +1,9 @@
-import AdvisingForm from "../components/AdvisingForm";
-import { HomepageBlogShowcase } from "../components/BlogShowcase";
-import Carousel from "../components/Carousel";
-import FloatingButtons from "../components/FloatingButtons";
-import { HomepageFeedback } from "../components/StudentFeedback";
-import '../styles/Home.css';
+import AdvisingForm from "@/modules/cores/components/AdvisingForm";
+import { HomepageBlogShowcase } from "@/modules/cores/components/BlogShowcase";
+import Carousel from "@/modules/cores/components/Carousel";
+import FloatingButtons from "@/modules/cores/components/FloatingButtons";
+import { HomepageFeedback } from "@/modules/cores/components/StudentFeedback";
+import '@/styles/Home.css';
 
 export default function Home() {
   return (
