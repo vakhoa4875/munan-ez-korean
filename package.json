@@ -13,6 +13,7 @@
     "@404pagez/react": "^0.1.1",
     "@tailwindcss/vite": "^4.0.9",
     "animate.css": "^4.1.1",
+    "chart.js": "^4.4.9",
     "primeicons": "^7.0.0",
     "primereact": "^10.9.3",
     "react": "^18.2.0",

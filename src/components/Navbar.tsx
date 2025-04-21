@@ -4,9 +4,16 @@ import { InputText } from 'primereact/inputtext';
 import { Menu } from 'primereact/menu';
 import { Menubar } from 'primereact/menubar';
 import { useRef } from 'react';
-import { avatarDropdownItems, menuItems } from '@/data/menu';
+import { MenuItem } from 'primereact/menuitem';
 
-export function TopNavbar({ toggleSidebar }: any) {
+interface TopNavbarProps {
+    toggleSidebar: () => void;
+    menuItems: MenuItem[];
+    onSearch: (event: any) => void;
+    avatarDropdownItems: MenuItem[];
+}
+
+export function TopNavbar({ toggleSidebar, menuItems, onSearch, avatarDropdownItems }: TopNavbarProps) {
     const menuRight = useRef<Menu>(null);
 
     return (
@@ -19,7 +26,7 @@ export function TopNavbar({ toggleSidebar }: any) {
                 <Menubar model={menuItems} />
             </div>
             <div className="flex items-center gap-2 ml-2">
-                <InputText placeholder="Tìm kiếm..." type="text" className="w-8rem sm:w-auto hidden standard:flex" />
+                <InputText placeholder="Tìm kiếm..." type="text" className="w-8rem sm:w-auto hidden standard:flex" onSubmit={(e) => onSearch(e)} />
                 <Avatar icon="pi pi-user" shape="circle" onClick={(event) => menuRight.current?.toggle(event)} aria-controls="popup_menu_right" aria-haspopup />
                 <Menu model={avatarDropdownItems} popup ref={menuRight} id="popup_menu_right" popupAlignment="right" />
             </div>

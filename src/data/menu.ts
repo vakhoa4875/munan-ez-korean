@@ -119,3 +119,110 @@ export const avatarDropdownItems: MenuItem[] = [
         url: '/dang-xuat'
     }
 ];
+
+// Menu dropdown cho avatar của admin
+export const adminAvatarDropdownItems: MenuItem[] = [
+    {
+        label: 'Bảng điều khiển',
+        icon: 'pi pi-th-large',
+        url: '/admin/dashboard'
+    },
+    {
+        label: 'Thông tin cá nhân',
+        icon: 'pi pi-user',
+        url: '/admin/thong-tin-ca-nhan'
+    },
+    {
+        label: 'Cài đặt hệ thống',
+        icon: 'pi pi-cog',
+        url: '/admin/cai-dat'
+    },
+    {
+        label: 'Đăng xuất',
+        icon: 'pi pi-sign-out',
+        url: '/dang-xuat'
+    }
+];
+
+// Menu items cho admin dashboard
+export const adminMenuItems: MenuItem[] = [
+    {
+        label: 'Bảng điều khiển',
+        icon: 'pi pi-th-large',
+        url: '/admin/dashboard'
+    },
+    {
+        label: 'Khóa học',
+        icon: 'pi pi-book',
+        items: [
+            {
+                label: 'Quản lý khóa học',
+                icon: 'pi pi-list',
+                url: '/admin/khoa-hoc/quan-ly'
+            },
+            {
+                label: 'Tạo khóa học',
+                icon: 'pi pi-plus',
+                url: '/admin/khoa-hoc/tao-moi'
+            },
+            {
+                label: 'Danh mục khóa học',
+                icon: 'pi pi-tags',
+                url: '/admin/khoa-hoc/danh-muc'
+            }
+        ]
+    },
+    {
+        label: 'Người dùng',
+        icon: 'pi pi-users',
+        items: [
+            {
+                label: 'Quản lý người dùng',
+                icon: 'pi pi-user-edit',
+                url: '/admin/nguoi-dung/quan-ly'
+            },
+            {
+                label: 'Phân quyền',
+                icon: 'pi pi-lock',
+                url: '/admin/nguoi-dung/phan-quyen'
+            }
+        ]
+    },
+    {
+        label: 'Bài viết',
+        icon: 'pi pi-file',
+        items: [
+            {
+                label: 'Quản lý bài viết',
+                icon: 'pi pi-list',
+                url: '/admin/bai-viet/quan-ly'
+            },
+            {
+                label: 'Tạo bài viết',
+                icon: 'pi pi-plus',
+                url: '/admin/bai-viet/tao-moi'
+            }
+        ]
+    },
+    {
+        label: 'Thống kê',
+        icon: 'pi pi-chart-bar',
+        items: [
+            {
+                label: 'Doanh thu',
+                icon: 'pi pi-dollar',
+                url: '/admin/thong-ke/doanh-thu'
+            },
+            {
+                label: 'Người dùng',
+                icon: 'pi pi-users',
+                url: '/admin/thong-ke/nguoi-dung'
+            }
+        ]
+    },
+    {
+        label: 'Cài đặt',
+        icon: 'pi pi-cog',
+        url: '/admin/cai-dat'
+    }
+];

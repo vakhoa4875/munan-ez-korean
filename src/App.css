@@ -1,29 +1,26 @@
-/* General Styles */
-.p-badge {
+/* Button Styles - Style cho các nút */
+.btn-primary {
   background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.p-inputtext:enabled:focus {
-  outline: 0 none;
-  outline-offset: 0;
-  box-shadow: var(--focus-ring);
-  border-color: var(--primary-color);
+.btn-primary:hover {
+  background-color: var(--sub-color);
 }
 
-/* Standard Viewport Styles */
-.standard\:none {
-  @media (width >=1366px) {
-    display: none;
-  }
+.btn-primary:active {
+  background-color: var(--sub-color);
 }
 
-.standard\:flex {
-  @media (width >=1366px) {
-    display: flex;
-  }
+.btn-primary:focus {
+  box-shadow: 0 0 0 0.2rem var(--sub-color);
 }
 
-/* Button Styles */
 .btn-transparent {
   background-color: transparent;
   border: none;
@@ -42,6 +39,84 @@
   outline: none;
   box-shadow: none;
 }
+
+.btn-rounded-e-md {
+  border-radius: 0;
+  border-start-end-radius: var(--radius-md)
+    /* 0.375rem = 6px */
+  ;
+  border-end-end-radius: var(--radius-md)
+    /* 0.375rem = 6px */
+  ;
+}
+
+/* Form Elements - Style cho các phần tử form */
+.input-rounded-s-md {
+  border-radius: 0;
+  border-start-start-radius: var(--radius-md)
+    /* 0.375rem = 6px */
+  ;
+  border-end-start-radius: var(--radius-md)
+    /* 0.375rem = 6px */
+  ;
+}
+
+.p-inputtext:enabled:focus {
+  outline: 0 none;
+  outline-offset: 0;
+  box-shadow: var(--focus-ring);
+  border-color: var(--primary-color);
+}
+
+/* Checkbox Styles */
+.p-checkbox.p-highlight .p-checkbox-box {
+  border-color: var(--primary-color);
+  background: var(--primary-color);
+}
+
+.p-highlight {
+  font-weight: normal !important;
+}
+
+/* Password Styles */
+.p-password-panel {
+  display: none !important;
+}
+
+.p-input-icon {
+  display: flex !important;
+}
+
+.p-password-input,
+.p-icon-field {
+  width: 100% !important;
+}
+
+/* Link Styles - Style cho các liên kết */
+.link-text {
+  color: var(--primary-color);
+}
+
+.link-text:hover {
+  color: var(--sub-color);
+  text-decoration: underline;
+}
+
+.p-link {
+  background-color: #a173109f !important;
+}
+
+/* Badge Styles */
+.p-badge {
+  background-color: var(--primary-color);
+}
+
+/* Section Icon Styles */
+.section-icon {
+  background-color: var(--primary-color) !important;
+}
+
+/* PrimeReact Component Overrides - Ghi đè style của PrimeReact */
 
 /* Panel Menu Styles */
 .p-panelmenu .p-panelmenu-header .p-panelmenu-header-content {
@@ -64,40 +139,6 @@
 
 .p-menubar .p-submenu-list {
   width: max-content !important;
-}
-
-/* Link Styles */
-.link-text {
-  color: var(--primary-color);
-}
-
-.link-text:hover {
-  color: var(--sub-color);
-  text-decoration: underline;
-}
-
-/* Checkbox Styles */
-.p-checkbox.p-highlight .p-checkbox-box {
-  border-color: var(--primary-color);
-  background: var(--primary-color);
-}
-
-/* Password Panel Styles */
-.p-password-panel {
-  display: none !important;
-}
-
-.p-input-icon {
-  display: flex !important;
-}
-
-.p-password-input, .p-icon-field {
-  width: 100% !important;
-}
-
-/* Link Styles */
-.p-link {
-  background-color: #a173109f !important;
 }
 
 /* Fieldset Styles */

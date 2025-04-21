@@ -1,11 +1,13 @@
+import Layout from "@/components/Layout"; // Main layout
+import Loading from "@/components/Loading"; // Optional loading fallback
 import 'primeicons/primeicons.css';
 import { lazy, Suspense } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Layout from "@/components/Layout"; // Main layout
-import Loading from "@/components/Loading"; // Optional loading fallback
+import AdminLayout from '../components/AdminLayout';
 
 // Lazy load pages for better performance
 const Home = lazy(() => import("@/pages/Home"));
+const AdminDashboard = lazy(() => import("@/pages/AdminDashboard"));
 const About = lazy(() => import("@/pages/About"));
 const Contact = lazy(() => import("@/pages/Contact"));
 const CourseSoCap = lazy(() => import("@/pages/CourseSoCap"));
@@ -33,6 +35,14 @@ const router = createBrowserRouter([
 
 
       { path: "tu-vung-tieng-han", element: <Suspense fallback={<Loading />}><KoreanVocabulary /></Suspense> },
+    ],
+  },
+  {
+    path: "/admin",
+    element: <AdminLayout />, // Wrap pages with a layout
+    children: [
+      { index: true, element: <Suspense fallback={<Loading />}><AdminDashboard /></Suspense> },
+
     ],
   },
   { path: "/dang-nhap", element: <Suspense fallback={<Loading />}><Login /></Suspense> },
