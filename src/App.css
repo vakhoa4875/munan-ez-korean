@@ -186,3 +186,8 @@
 .p-datatable .p-datatable-thead > tr > th {
   padding: 1rem 0.75rem !important;
 }
+
+#editor img {
+  max-height: 500px;
+  width: auto;
+}

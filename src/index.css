@@ -64,3 +64,16 @@ body.dark-mode {
 #section-404 {
   @apply flex! items-center justify-center;
 }
+
+/* Quill Editor Styles - Style cho Quill Editor */
+.ql-align-center {
+  @apply flex justify-center;
+}
+
+.ql-align-right {
+  @apply flex justify-end;
+}
+
+.ql-align-justify {
+  @apply flex justify-evenly items-center max-w-full gap-4;
+}
