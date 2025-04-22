@@ -1,15 +1,16 @@
 import { MenuItem } from "primereact/menuitem";
 
-export const menuItems: MenuItem[] = [
+// Menu items cho trang chủ
+export const createMenuItems = (navigate: any): MenuItem[] => [
     {
         label: 'Trang chủ',
         icon: 'pi pi-home',
-        url: '/'
+        command: () => navigate('/')
     },
     {
         label: 'Giới thiệu',
         icon: 'pi pi-sparkles',
-        url: '/gioi-thieu'
+        command: () => navigate('/gioi-thieu')
     },
     {
         label: 'Khóa học',
@@ -18,32 +19,32 @@ export const menuItems: MenuItem[] = [
             {
                 label: 'Tiếng Hàn sơ cấp',
                 icon: 'pi pi-language',
-                url: '/khoa-hoc/tieng-han-so-cap'
+                command: () => navigate('/khoa-hoc/tieng-han-so-cap')
             },
             {
                 label: 'Tiếng Hàn trung cấp',
                 icon: 'pi pi-language',
-                url: '/khoa-hoc/tieng-han-trung-cap'
+                command: () => navigate('/khoa-hoc/tieng-han-trung-cap')
             },
             {
                 label: 'Tiếng Hàn cao cấp',
                 icon: 'pi pi-language',
-                url: '/khoa-hoc/tieng-han-cao-cap'
+                command: () => navigate('/khoa-hoc/tieng-han-cao-cap')
             },
             {
                 label: 'Tiếng Hàn thi TOPIK',
                 icon: 'pi pi-verified',
-                url: '/khoa-hoc/tieng-han-thi-topik'
+                command: () => navigate('/khoa-hoc/tieng-han-thi-topik')
             },
             {
                 label: 'Tiếng Hàn XKLĐ EPS',
                 icon: 'pi pi-briefcase',
-                url: '/khoa-hoc/tieng-han-xkld-eps'
+                command: () => navigate('/khoa-hoc/tieng-han-xkld-eps')
             },
             {
                 label: 'Tiếng Hàn cấp tốc',
                 icon: 'pi pi-bolt',
-                url: '/khoa-hoc/tieng-han-cap-toc'
+                command: () => navigate('/khoa-hoc/tieng-han-cap-toc')
             }
         ]
     },
@@ -54,7 +55,7 @@ export const menuItems: MenuItem[] = [
             {
                 label: 'Từ vựng tiếng Hàn',
                 icon: 'pi pi-language',
-                url: '/tu-vung-tieng-han'
+                command: () => navigate('/tu-vung-tieng-han')
             },
             {
                 label: 'Ngữ pháp tiếng Hàn',
@@ -63,12 +64,12 @@ export const menuItems: MenuItem[] = [
                     {
                         label: 'Ngữ pháp cơ bản',
                         icon: 'pi pi-language',
-                        url: '/ngu-phap-co-ban'
+                        command: () => navigate('/ngu-phap-co-ban')
                     },
                     {
                         label: 'Mục lục ngữ pháp',
                         icon: 'pi pi-list',
-                        url: '/muc-luc-ngu-phap'
+                        command: () => navigate('/muc-luc-ngu-phap')
                     }
                 ]
             }
@@ -81,75 +82,76 @@ export const menuItems: MenuItem[] = [
             {
                 label: 'Lịch sử Hàn Quốc',
                 icon: 'pi pi-history',
-                url: '/han-quoc-hoc/lich-su-han-quoc'
+                command: () => navigate('/han-quoc-hoc/lich-su-han-quoc')
             },
             {
                 label: 'Văn hóa Hàn Quốc',
                 icon: 'pi pi-building-columns',
-                url: '/han-quoc-hoc/van-hoa-han-quoc'
+                command: () => navigate('/han-quoc-hoc/van-hoa-han-quoc')
             },
             {
                 label: 'Xã hội Hàn Quốc',
                 icon: 'pi pi-users',
-                url: '/han-quoc-hoc/xh-han-quoc'
+                command: () => navigate('/han-quoc-hoc/xh-han-quoc')
             }
         ]
     },
     {
         label: 'Liên hệ',
         icon: 'pi pi-envelope',
-        url: '/lien-he'
+        command: () => navigate('/lien-he')
     }
 ];
 
-export const avatarDropdownItems: MenuItem[] = [
+// Menu dropdown cho avatar
+export const createAvatarDropdownItems = (navigate: any): MenuItem[] => [
     {
         label: 'Khóa học của tôi',
         icon: 'pi pi-book',
-        url: '/khoa-hoc-cua-toi'
+        command: () => navigate('/khoa-hoc-cua-toi')
     },
     {
         label: 'Thông tin cá nhân',
         icon: 'pi pi-user',
-        url: '/thong-tin-ca-nhan'
+        command: () => navigate('/thong-tin-ca-nhan')
     },
     {
         label: 'Đăng xuất',
         icon: 'pi pi-sign-out',
-        url: '/dang-xuat'
+        command: () => navigate('/dang-xuat')
     }
 ];
 
 // Menu dropdown cho avatar của admin
-export const adminAvatarDropdownItems: MenuItem[] = [
+export const createAdminAvatarDropdownItems = (navigate: any): MenuItem[] => [
     {
         label: 'Bảng điều khiển',
         icon: 'pi pi-th-large',
-        url: '/admin/dashboard'
+        command: () => navigate('/admin/dashboard')
     },
     {
         label: 'Thông tin cá nhân',
         icon: 'pi pi-user',
-        url: '/admin/thong-tin-ca-nhan'
+        command: () => navigate('/admin/thong-tin-ca-nhan')
     },
     {
         label: 'Cài đặt hệ thống',
         icon: 'pi pi-cog',
-        url: '/admin/cai-dat'
+        command: () => navigate('/admin/cai-dat')
     },
     {
         label: 'Đăng xuất',
         icon: 'pi pi-sign-out',
-        url: '/dang-xuat'
+        command: () => navigate('/dang-xuat')
     }
 ];
 
 // Menu items cho admin dashboard
-export const adminMenuItems: MenuItem[] = [
+export const createAdminMenuItems = (navigate: any): MenuItem[] => [
     {
         label: 'Bảng điều khiển',
         icon: 'pi pi-th-large',
-        url: '/admin/dashboard'
+        command: () => navigate('/admin/dashboard')
     },
     {
         label: 'Khóa học',
@@ -158,17 +160,17 @@ export const adminMenuItems: MenuItem[] = [
             {
                 label: 'Quản lý khóa học',
                 icon: 'pi pi-list',
-                url: '/admin/khoa-hoc/quan-ly'
+                command: () => navigate('/admin/khoa-hoc/quan-ly')
             },
             {
                 label: 'Tạo khóa học',
                 icon: 'pi pi-plus',
-                url: '/admin/khoa-hoc/tao-moi'
+                command: () => navigate('/admin/khoa-hoc/tao-moi')
             },
             {
                 label: 'Danh mục khóa học',
                 icon: 'pi pi-tags',
-                url: '/admin/khoa-hoc/danh-muc'
+                command: () => navigate('/admin/khoa-hoc/danh-muc')
             }
         ]
     },
@@ -179,12 +181,12 @@ export const adminMenuItems: MenuItem[] = [
             {
                 label: 'Quản lý người dùng',
                 icon: 'pi pi-user-edit',
-                url: '/admin/nguoi-dung/quan-ly'
+                command: () => navigate('/admin/nguoi-dung/quan-ly')
             },
             {
                 label: 'Phân quyền',
                 icon: 'pi pi-lock',
-                url: '/admin/nguoi-dung/phan-quyen'
+                command: () => navigate('/admin/nguoi-dung/phan-quyen')
             }
         ]
     },
@@ -195,12 +197,12 @@ export const adminMenuItems: MenuItem[] = [
             {
                 label: 'Quản lý bài viết',
                 icon: 'pi pi-list',
-                url: '/admin/bai-viet/quan-ly'
+                command: () => navigate('/admin/bai-viet/quan-ly')
             },
             {
                 label: 'Tạo bài viết',
                 icon: 'pi pi-plus',
-                url: '/admin/bai-viet/tao-moi'
+                command: () => navigate('/admin/bai-viet/tao-moi')
             }
         ]
     },
@@ -211,18 +213,18 @@ export const adminMenuItems: MenuItem[] = [
             {
                 label: 'Doanh thu',
                 icon: 'pi pi-dollar',
-                url: '/admin/thong-ke/doanh-thu'
+                command: () => navigate('/admin/thong-ke/doanh-thu')
             },
             {
                 label: 'Người dùng',
                 icon: 'pi pi-users',
-                url: '/admin/thong-ke/nguoi-dung'
+                command: () => navigate('/admin/thong-ke/nguoi-dung')
             }
         ]
     },
     {
         label: 'Cài đặt',
         icon: 'pi pi-cog',
-        url: '/admin/cai-dat'
+        command: () => navigate('/admin/cai-dat')
     }
 ];

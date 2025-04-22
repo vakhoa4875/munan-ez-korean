@@ -4,13 +4,11 @@ import { Link } from "react-router-dom";
 
 export default function Footer({ isAdmin }: { isAdmin: boolean }) {
     return (
-        <footer className="py-4 text-[var(--primary-color)] bg-[var(--text-color)] mt-auto rounded-t-md">
+        <footer className="py-4 text-white bg-[#453630] mt-auto rounded-t-md">
             {isAdmin ? (
-                <div className="text-center">
-                    <p className="text-sm text-center">
+                    <p className="text-lg text-center">
                         &copy; 2025 Hàn Ngữ Munan. All Rights Reserved.
                     </p>
-                </div>
             ) : (
                 <div className="flex flex-col md:flex-row justify-evenly w-full items-center">
                     <div className="hidden flex-col text-left md:flex">

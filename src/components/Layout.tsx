@@ -1,7 +1,10 @@
-import { avatarDropdownItems, menuItems } from "@/data/menu";
+// import { avatarDropdownItems, menuItems } from "@/data/menu";
+import "@/styles/layout.css";
+import { MenuItem } from "primereact/menuitem";
 import { ScrollTop } from "primereact/scrolltop";
 import { useState } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
+import { createAvatarDropdownItems, createMenuItems } from "../data/menu";
 import Footer from "./Footer";
 import { TopNavbar } from "./Navbar";
 import { RightSideBar } from "./Sidebar";
@@ -9,12 +12,17 @@ import { RightSideBar } from "./Sidebar";
 export default function Layout() {
   const [visible, setVisible] = useState(false);
   const toggleSidebar = () => setVisible(!visible);
+  const navigate = useNavigate();
+  const [menuItems] = useState<MenuItem[]>(createMenuItems(navigate));
+  const [avatarDropdownItems] = useState<MenuItem[]>(createAvatarDropdownItems(navigate));
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <RightSideBar
         visible={visible}
         toggleSidebar={toggleSidebar}
+        menuItems={menuItems}
+        onSearch={(e) => console.log(e.target.value)}
       />
       <TopNavbar
         toggleSidebar={toggleSidebar}
@@ -29,4 +37,5 @@ export default function Layout() {
       <Footer isAdmin={false} />
     </div>
   );
+
 }

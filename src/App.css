@@ -78,6 +78,16 @@
   font-weight: normal !important;
 }
 
+.p-selectbutton .p-button.p-highlight {
+  background-color: var(--primary-color) !important;
+  color: white !important;
+  border-color: var(--sub-color) !important;
+}
+
+.p-button:focus {
+	box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px var(--sub-color), 0 1px 2px 0 rgba(0, 0, 0, 0);
+}
+
 /* Password Styles */
 .p-password-panel {
   display: none !important;
@@ -94,16 +104,16 @@
 
 /* Link Styles - Style cho các liên kết */
 .link-text {
-  color: var(--primary-color);
+  color: white;
 }
 
 .link-text:hover {
-  color: var(--sub-color);
+  color: var(--light-rose);
   text-decoration: underline;
 }
 
 .p-link {
-  background-color: #a173109f !important;
+  background-color: var(--light-rose) !important;
 }
 
 /* Badge Styles */
@@ -166,4 +176,13 @@
 
 .p-card-body {
   padding: 0.875rem !important;
+}
+
+/* Table Styles */
+.p-datatable .p-datatable-tbody > tr > td {
+  padding: 0.5rem 0.75rem !important;
+}
+
+.p-datatable .p-datatable-thead > tr > th {
+  padding: 1rem 0.75rem !important;
 }

@@ -36,7 +36,7 @@ const RecentActivities: React.FC = () => {
 
   const actionBodyTemplate = () => {
     return (
-      <Button icon="pi pi-eye" className="rounded-full p-button-text" />
+      <Button icon="pi pi-eye" className="rounded-full p-button-text text-[var(--primary-color)]!" />
     );
   };
 

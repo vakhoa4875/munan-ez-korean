@@ -3,8 +3,8 @@ import { Button } from 'primereact/button';
 import { InputText } from 'primereact/inputtext';
 import { Menu } from 'primereact/menu';
 import { Menubar } from 'primereact/menubar';
-import { useRef } from 'react';
 import { MenuItem } from 'primereact/menuitem';
+import { useRef } from 'react';
 
 interface TopNavbarProps {
     toggleSidebar: () => void;
@@ -17,8 +17,8 @@ export function TopNavbar({ toggleSidebar, menuItems, onSearch, avatarDropdownIt
     const menuRight = useRef<Menu>(null);
 
     return (
-        <div className="flex justify-between items-center p-4 bg-white shadow-md md:flex rounded-b-md">
-            <div className="items-center flex">
+        <div className="flex justify-between items-center px-4 py-3 bg-white shadow-md md:flex rounded-b-md sticky top-0 z-50">
+            <div className="items-center flex gap-3">
                 <Button icon="pi pi-bars" className="mr-2 flex standard:none btn-transparent" onClick={toggleSidebar} />
                 <img alt="logo" src="/circle-logo.png" className="mr-2 h-[40px] flex-none" />
             </div>
