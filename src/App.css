@@ -115,6 +115,7 @@
 
 .p-link {
   background-color: var(--light-rose) !important;
+  color: white !important;
 }
 
 /* Badge Styles */
@@ -191,4 +192,14 @@
 #editor img {
   max-height: 500px;
   width: auto;
+}
+
+.blog-container a {
+  color: var(--light-blue);
+}
+
+.p-button.p-button-outlined {
+	background-color: transparent;
+	color: var(--primary-color);
+	border: 1px solid;
 }

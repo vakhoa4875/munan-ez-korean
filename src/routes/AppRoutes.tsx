@@ -9,6 +9,7 @@ import AdminLayout from '@/components/AdminLayout';
 const Home = lazy(() => import("@/pages/Home"));
 const AdminDashboard = lazy(() => import("@/pages/AdminDashboard"));
 const BlogEditor = lazy(() => import("@/pages/BlogEditor"));
+const Blog = lazy(() => import("@/pages/Blog"));
 const About = lazy(() => import("@/pages/About"));
 const Contact = lazy(() => import("@/pages/Contact"));
 const CourseSoCap = lazy(() => import("@/pages/CourseSoCap"));
@@ -33,8 +34,7 @@ const router = createBrowserRouter([
       { path: "khoa-hoc/tieng-han-so-cap", element: <Suspense fallback={<Loading />}><CourseSoCap /></Suspense> },
       { path: "khoa-hoc/tieng-han-trung-cap", element: <Suspense fallback={<Loading />}><CourseTrungCap /></Suspense> },
       { path: "khoa-hoc/tieng-han-cao-cap", element: <Suspense fallback={<Loading />}><CourseCaoCap /></Suspense> },
-
-
+      { path: "bai-viet", element: <Suspense fallback={<Loading />}><Blog /></Suspense> },
       { path: "tu-vung-tieng-han", element: <Suspense fallback={<Loading />}><KoreanVocabulary /></Suspense> },
     ],
   },

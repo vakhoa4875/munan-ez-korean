@@ -2,7 +2,7 @@ import { ConfirmDialog } from 'primereact/confirmdialog';
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import BlogForm from '@/modules/blog/components/BlogForm';
-import BlogHeader from '@/modules/blog/components/BlogHeader';
+import BlogEditorHeader from '@/modules/blog/components/BlogEditorHeader';
 import LoadingOverlay from '@/modules/blog/components/LoadingOverlay';
 import { useBlogEditor } from '@/modules/blog/hooks/useBlogEditor';
 
@@ -26,7 +26,7 @@ const BlogEditor: React.FC = () => {
         <div className="bg-white rounded-lg shadow-md p-6">
             <ConfirmDialog />
 
-            <BlogHeader
+            <BlogEditorHeader
                 isEditing={!!id}
                 isLoading={isLoading}
                 onSaveDraft={saveDraft}

@@ -88,11 +88,11 @@ const BlogSidebar: React.FC<BlogSidebarProps> = ({
                     />
                 </div>
 
-                {blogPost.publishDate && (
+                {blogPost.publishedAt && (
                     <div className="mb-4">
                         <label className="block text-sm font-medium text-gray-700 mb-1">Ngày xuất bản</label>
                         <div className="text-gray-500 text-sm">
-                            {new Date(blogPost.publishDate).toLocaleDateString('vi-VN', {
+                            {new Date(blogPost.publishedAt).toLocaleDateString('vi-VN', {
                                 day: '2-digit',
                                 month: '2-digit',
                                 year: 'numeric',

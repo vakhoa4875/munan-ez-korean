@@ -9,7 +9,30 @@ export interface BlogPost {
     tags: string[];
     status: string;
     author: string;
-    publishDate?: Date;
+    authorAvatar?: string;
+    publishedAt?: Date;
+    views?: number;
+    likes?: number;
+}
+
+
+export interface Comment {
+    id: string;
+    postId: string;
+    author: string;
+    authorAvatar?: string;
+    content: string;
+    createdAt: Date;
+    replies?: Reply[];
+}
+
+export interface Reply {
+    id: string;
+    commentId: string;
+    author: string;
+    authorAvatar?: string;
+    content: string;
+    createdAt: Date;
 }
 
 export interface Category {

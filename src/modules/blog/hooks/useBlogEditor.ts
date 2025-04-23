@@ -83,7 +83,7 @@ export const useBlogEditor = (id?: string) => {
         setBlogPost(prev => ({
             ...prev,
             status: 'published',
-            publishDate: new Date()
+            publishedAt: new Date()
         }));
         savePost();
     };
