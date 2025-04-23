@@ -1,8 +1,9 @@
+import { createAdminAvatarDropdownItems, createAdminMenuItems } from "@/data/menu";
+import "@/styles/Layout.css";
 import { MenuItem } from "primereact/menuitem";
 import { ScrollTop } from "primereact/scrolltop";
 import { useState } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
-import { createAdminAvatarDropdownItems, createAdminMenuItems } from "@/data/menu";
 import Footer from "./Footer";
 import { TopNavbar } from "./Navbar";
 import { RightSideBar } from "./Sidebar";
