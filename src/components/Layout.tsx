@@ -1,5 +1,3 @@
-// import { avatarDropdownItems, menuItems } from "@/data/menu";
-import "@/styles/layout.css";
 import { MenuItem } from "primereact/menuitem";
 import { ScrollTop } from "primereact/scrolltop";
 import { useState } from "react";
