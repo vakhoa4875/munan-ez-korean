@@ -11,7 +11,7 @@ const ImageUploader: React.FC<ImageUploaderProps> = ({ featuredImage, onImageUpl
     const handleUpload = async (event: any) => {
         try {
             const file = event.files[0];
-            const imageUrl = await uploadImage(file);
+            const imageUrl = await uploadImage(file);          
             onImageUpload(imageUrl);
             
             // Xóa file sau khi xử lý
@@ -48,7 +48,7 @@ const ImageUploader: React.FC<ImageUploaderProps> = ({ featuredImage, onImageUpl
                     className="w-full"
                     chooseOptions={{
                         icon: 'pi pi-image',
-                        className: 'bg-primary-color text-white hover:bg-opacity-90'
+                        className: 'btn-primary',
                     }}
                 />
             </div>

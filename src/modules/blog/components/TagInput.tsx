@@ -39,7 +39,7 @@ const TagInput: React.FC<TagInputProps> = ({
                     icon="pi pi-plus" 
                     onClick={onAddTag}
                     disabled={!currentTag}
-                    className="bg-primary-color text-white rounded-r-md rounded-l-none hover:bg-opacity-90"
+                    className="btn-primary"
                 />
             </div>
             <div className="flex flex-wrap gap-2 mt-2">

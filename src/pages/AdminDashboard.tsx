@@ -1,7 +1,7 @@
 import React from 'react';
-import OverallStats from '../modules/admin/components/OverallStats';
-import RecentActivities from '../modules/admin/components/RecentActivities';
-import PerformanceCharts from '../modules/admin/components/PerformanceCharts';
+import OverallStats from '@/modules/admin/components/OverallStats';
+import RecentActivities from '@/modules/admin/components/RecentActivities';
+import PerformanceCharts from '@/modules/admin/components/PerformanceCharts';
 
 const AdminDashboard: React.FC = () => {
   return (

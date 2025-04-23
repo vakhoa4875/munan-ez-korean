@@ -34,14 +34,14 @@ const BlogHeader: React.FC<BlogHeaderProps> = ({
                 <Button 
                     label="Lưu nháp" 
                     icon="pi pi-save" 
-                    className="bg-gray-600 hover:bg-gray-700 text-white" 
+                    severity='secondary'
                     onClick={onSaveDraft}
                     disabled={isLoading}
                 />
                 <Button 
                     label="Xuất bản" 
-                    icon="pi pi-check" 
-                    className="bg-green-600 hover:bg-green-700 text-white" 
+                    icon="pi pi-check"
+                    className='btn-primary'
                     onClick={onPublish}
                     disabled={isLoading}
                 />

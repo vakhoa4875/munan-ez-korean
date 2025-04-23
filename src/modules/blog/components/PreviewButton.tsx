@@ -81,7 +81,7 @@ const PreviewButton: React.FC<PreviewButtonProps> = ({ blogPost }) => {
         <Button 
             label="Xem trước" 
             icon="pi pi-eye" 
-            className="bg-blue-500 hover:bg-blue-600 text-white" 
+            className='btn-primary'
             onClick={handlePreview}
         />
     );

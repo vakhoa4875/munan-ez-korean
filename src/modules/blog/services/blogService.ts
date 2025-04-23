@@ -61,6 +61,7 @@ export const saveBlogPost = async (blogPost: BlogPost): Promise<BlogPost> => {
 
 export const deleteBlogPost = async (id: string): Promise<boolean> => {
     // Giả lập API call
+    console.log(`Deleting blog post with id: ${id}`);    
     return new Promise((resolve) => {
         setTimeout(() => {
             resolve(true);

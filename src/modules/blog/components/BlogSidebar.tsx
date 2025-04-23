@@ -110,7 +110,7 @@ const BlogSidebar: React.FC<BlogSidebarProps> = ({
                 <Button
                     label="Hủy"
                     icon="pi pi-times"
-                    className="bg-red-500 hover:bg-red-600 text-white"
+                    severity='danger'
                     onClick={onCancel}
                 />
             </div>

@@ -61,7 +61,8 @@
   ;
 }
 
-.p-inputtext:enabled:focus {
+.p-inputtext:enabled:focus,
+.p-dropdown:not(.p-disabled).p-focus {
   outline: 0 none;
   outline-offset: 0;
   box-shadow: var(--focus-ring);

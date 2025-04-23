@@ -1,13 +1,12 @@
-import { useState, useEffect, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Toast } from 'primereact/toast';
 import { confirmDialog } from 'primereact/confirmdialog';
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { deleteBlogPost, fetchBlogPost, generateSlug, saveBlogPost } from '../services/blogService';
 import { BlogPost } from '../types/blog.types';
-import { fetchBlogPost, saveBlogPost, deleteBlogPost, generateSlug } from '../services/blogService';
 
 export const useBlogEditor = (id?: string) => {
     const navigate = useNavigate();
-    const toast = useRef<Toast>(null);
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [tag, setTag] = useState<string>('');
     const [blogPost, setBlogPost] = useState<BlogPost>({
@@ -31,17 +30,13 @@ export const useBlogEditor = (id?: string) => {
                 })
                 .catch(error => {
                     console.error('Error fetching blog post:', error);
-                    showToast('error', 'Lỗi', 'Không thể tải bài viết');
+                    toast.error('Không thể tải bài viết');
                 })
                 .finally(() => {
                     setIsLoading(false);
                 });
         }
     }, [id]);
-
-    const showToast = (severity: 'success' | 'info' | 'warn' | 'error', summary: string, detail: string) => {
-        toast.current?.show({ severity, summary, detail, life: 3000 });
-    };
 
     const handleTitleChange = (title: string) => {
         setBlogPost(prev => ({
@@ -61,11 +56,19 @@ export const useBlogEditor = (id?: string) => {
         }
     };
 
-    const handleRemoveTag = (tagToRemove: string) => {
-        setBlogPost(prev => ({
-            ...prev,
-            tags: prev.tags.filter(t => t !== tagToRemove)
-        }));
+    const handleRemoveTag = (tagToRemove: string): boolean => {
+        // Check if the tag exists before attempting to remove
+        const tagExists = blogPost.tags.includes(tagToRemove);
+
+        if (tagExists) {
+            setBlogPost(prev => ({
+                ...prev,
+                tags: prev.tags.filter(t => t !== tagToRemove)
+            }));
+            return true; // Tag was found and removed
+        }
+
+        return false; // Tag wasn't found, nothing was removed
     };
 
     const saveDraft = () => {
@@ -89,13 +92,13 @@ export const useBlogEditor = (id?: string) => {
         setIsLoading(true);
         try {
             await saveBlogPost(blogPost);
-            showToast('success', 'Thành công', id ? 'Đã cập nhật bài viết' : 'Đã tạo bài viết mới');
+            toast.success(id ? 'Đã cập nhật bài viết' : 'Đã tạo bài viết mới');
             if (!id) {
                 navigate('/admin/bai-viet/quan-ly');
             }
         } catch (error) {
             console.error('Error saving blog post:', error);
-            showToast('error', 'Lỗi', 'Không thể lưu bài viết');
+            toast.error('Không thể lưu bài viết');
         } finally {
             setIsLoading(false);
         }
@@ -109,15 +112,15 @@ export const useBlogEditor = (id?: string) => {
             acceptClassName: 'p-button-danger',
             accept: async () => {
                 if (!id) return;
-                
+
                 setIsLoading(true);
                 try {
                     await deleteBlogPost(id);
-                    showToast('success', 'Thành công', 'Đã xóa bài viết');
+                    toast.success('Đã xóa bài viết');
                     navigate('/admin/bai-viet/quan-ly');
                 } catch (error) {
                     console.error('Error deleting blog post:', error);
-                    showToast('error', 'Lỗi', 'Không thể xóa bài viết');
+                    toast.error('Không thể xóa bài viết');
                 } finally {
                     setIsLoading(false);
                 }
@@ -141,7 +144,6 @@ export const useBlogEditor = (id?: string) => {
         isLoading,
         tag,
         setTag,
-        toast,
         handleTitleChange,
         handleAddTag,
         handleRemoveTag,

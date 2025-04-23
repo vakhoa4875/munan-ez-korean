@@ -1,4 +1,5 @@
 import React from 'react';
+import { generateSlug } from '../services/blogService';
 import { BlogPost } from '../types/blog.types';
 import BlogContent from './BlogContent';
 import BlogSidebar from './BlogSidebar';
@@ -23,7 +24,11 @@ const BlogForm: React.FC<BlogFormProps> = ({
     onCancel
 }) => {
     const handleTitleChange = (title: string) => {
-        setBlogPost(prev => ({ ...prev, title }));
+        setBlogPost(prev => ({
+            ...prev,
+            title,
+            slug: generateSlug(title)
+        }));
     };
 
     const handleSlugChange = (slug: string) => {
@@ -57,7 +62,7 @@ const BlogForm: React.FC<BlogFormProps> = ({
     return (
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
             <div className="md:col-span-8">
-                <BlogContent 
+                <BlogContent
                     blogPost={blogPost}
                     onTitleChange={handleTitleChange}
                     onSlugChange={handleSlugChange}
@@ -65,9 +70,9 @@ const BlogForm: React.FC<BlogFormProps> = ({
                     onContentChange={handleContentChange}
                 />
             </div>
-            
+
             <div className="md:col-span-4">
-                <BlogSidebar 
+                <BlogSidebar
                     blogPost={blogPost}
                     tag={tag}
                     onTagChange={setTag}
