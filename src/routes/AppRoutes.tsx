@@ -15,6 +15,8 @@ const Contact = lazy(() => import("@/pages/Contact"));
 const CourseSoCap = lazy(() => import("@/pages/CourseSoCap"));
 const CourseTrungCap = lazy(() => import("@/pages/CourseTrungCap"));
 const CourseCaoCap = lazy(() => import("@/pages/CourseCaoCap"));
+const CourseChooseVideo = lazy(() => import("@/pages/CourseChooseVideo"));
+const CourseWatchVideo = lazy(() => import("@/pages/CourseWatchVideo")); 
 
 const KoreanVocabulary = lazy(() => import("@/pages/KoreanVocabulary"));
 const NotFound = lazy(() => import("@/pages/NotFound"));
@@ -35,6 +37,10 @@ const router = createBrowserRouter([
       { path: "khoa-hoc/tieng-han-trung-cap", element: <Suspense fallback={<Loading />}><CourseTrungCap /></Suspense> },
       { path: "khoa-hoc/tieng-han-cao-cap", element: <Suspense fallback={<Loading />}><CourseCaoCap /></Suspense> },
       { path: "bai-viet", element: <Suspense fallback={<Loading />}><Blog /></Suspense> },
+      {path: "khoa-hoc/tieng-han-so-cap/chon-video", element: <Suspense fallback={<Loading />}><CourseChooseVideo /></Suspense> },
+      { path: "khoa-hoc/tieng-han-so-cap/xem-video", element: <Suspense fallback={<Loading />}><CourseWatchVideo /></Suspense> },
+
+
       { path: "tu-vung-tieng-han", element: <Suspense fallback={<Loading />}><KoreanVocabulary /></Suspense> },
     ],
   },
