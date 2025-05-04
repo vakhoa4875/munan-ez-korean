@@ -3,7 +3,6 @@ import { Button } from "primereact/button";
 import {
   FaCalendarAlt,
 } from "react-icons/fa";
-import "animate.css";
 
 export default function CourseSoCap() {
   return (
