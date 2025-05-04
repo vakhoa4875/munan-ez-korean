@@ -1,7 +1,6 @@
 import { InputTextarea } from "primereact/inputtextarea";
 import { Button } from "primereact/button";
 import { useState, useEffect, useCallback } from "react";
-import { YouTubeEvent } from "react-youtube";
 import YouTube from "react-youtube";
 import "animate.css";
 import { useLocation } from "react-router-dom";
