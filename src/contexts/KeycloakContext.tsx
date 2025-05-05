@@ -1,0 +1,156 @@
+import React, { createContext, useContext, useState, useEffect, ReactNode, useRef } from 'react';
+import keycloakInstance from '@/modules/auth/services/keycloak';
+
+interface KeycloakContextProps {
+  keycloak: typeof keycloakInstance;
+  initialized: boolean;
+  isAuthenticated: boolean;
+  login: () => Promise<void>;
+  logout: () => void;
+  getToken: () => Promise<string | undefined>;
+}
+
+const KeycloakContext = createContext<KeycloakContextProps | undefined>(undefined);
+
+interface KeycloakProviderProps {
+  children: ReactNode;
+}
+
+export const KeycloakProvider: React.FC<KeycloakProviderProps> = ({ children }) => {
+  const [initialized, setInitialized] = useState<boolean>(false);
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
+  // Sử dụng useRef để theo dõi trạng thái khởi tạo
+  const isInitializing = useRef<boolean>(false);
+
+  useEffect(() => {
+    const initKeycloak = async () => {
+      // Kiểm tra xem đã đang khởi tạo chưa
+      if (isInitializing.current) {
+        return;
+      }
+      
+      // Đánh dấu đang khởi tạo
+      isInitializing.current = true;
+      
+      try {
+        // Kiểm tra xem đã được khởi tạo chưa
+        if (!keycloakInstance.authenticated) {
+          const authenticated = await keycloakInstance.init({
+            onLoad: 'check-sso',
+            silentCheckSsoRedirectUri: window.location.origin + '/silent-check-sso.html',
+            pkceMethod: 'S256',
+            checkLoginIframe: false,
+            enableLogging: true,
+          });
+
+          // Thiết lập token refresh tự động
+          if (authenticated) {
+            setupTokenRefresh();
+          }
+          
+          setIsAuthenticated(authenticated);
+        } else {
+          setIsAuthenticated(true);
+        }
+      } catch (error) {
+        console.error('Keycloak initialization failed:', error);
+      } finally {
+        setInitialized(true);
+        // Đánh dấu đã hoàn thành khởi tạo
+        isInitializing.current = false;
+      }
+    };
+
+    initKeycloak();
+    
+    // Cleanup function
+    return () => {
+      // Nếu cần, thêm logic cleanup ở đây
+    };
+  }, []);
+
+  // Thiết lập token refresh tự động
+  const setupTokenRefresh = () => {
+    // Kiểm tra token mỗi 30 giây
+    const refreshInterval = setInterval(() => {
+      if (keycloakInstance.authenticated) {
+        keycloakInstance.updateToken(70)
+          .then((refreshed) => {
+            if (refreshed) {
+              console.log('Token refreshed successfully');
+            }
+          })
+          .catch(() => {
+            console.error('Failed to refresh token, logging out...');
+            clearInterval(refreshInterval); // Xóa interval trước khi logout
+            keycloakInstance.logout();
+          });
+      }
+    }, 30000);
+
+    // Cleanup interval khi component unmount
+    return () => clearInterval(refreshInterval);
+  };
+
+  // Hàm login với popup
+  const login = async (): Promise<void> => {
+    try {
+      await keycloakInstance.login({
+        // Sử dụng popup thay vì redirect
+        action: 'login',
+        prompt: 'login',
+        redirectUri: window.location.origin,
+        scope: 'openid profile email',
+        // Chỉ hiển thị Google login
+        idpHint: 'google',
+      });
+      setIsAuthenticated(true);
+    } catch (error) {
+      console.error('Login failed:', error);
+    }
+  };
+
+  // Hàm logout
+  const logout = () => {
+    keycloakInstance.logout({ redirectUri: window.location.origin });
+    setIsAuthenticated(false);
+  };
+
+  // Hàm lấy token
+  const getToken = async (): Promise<string | undefined> => {
+    try {
+      // Cố gắng refresh token nếu gần hết hạn (70 giây)
+      await keycloakInstance.updateToken(70);
+      return keycloakInstance.token;
+    } catch (error) {
+      console.error('Failed to get token:', error);
+      // Nếu không refresh được, logout
+      logout();
+      return undefined;
+    }
+  };
+
+  const value = {
+    keycloak: keycloakInstance,
+    initialized,
+    isAuthenticated,
+    login,
+    logout,
+    getToken,
+  };
+
+  return (
+    <KeycloakContext.Provider value={value}>
+      {children}
+    </KeycloakContext.Provider>
+  );
+};
+
+// Hook để sử dụng Keycloak context
+export const useKeycloak = (): KeycloakContextProps => {
+  const context = useContext(KeycloakContext);
+  if (!context) {
+    throw new Error('useKeycloak must be used within a KeycloakProvider');
+  }
+  return context;
+};
