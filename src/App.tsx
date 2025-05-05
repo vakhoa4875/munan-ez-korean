@@ -1,36 +1,32 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { KeycloakProvider } from './contexts/KeycloakContext';
-
-// PrimeReact imports
-import 'primereact/resources/themes/lara-light-indigo/theme.css';
-import 'primereact/resources/primereact.min.css';
-import 'primeicons/primeicons.css';
+import './App.css';
 
 // Components
-import Login from './components/Login';
-import UserProfile from './components/UserProfile';
-import ProtectedRoute from './components/ProtectedRoute';
+import { ToastContainer } from 'react-toastify';
+import AppRoutes from './routes/AppRoutes';
+import { ConfirmDialog } from 'primereact/confirmdialog';
 
 const App: React.FC = () => {
   return (
-    <KeycloakProvider>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/login" element={<Login />} />
-          
-          {/* Protected Routes */}
-          <Route element={<ProtectedRoute />}>
-            <Route path="/profile" element={<UserProfile />} />
-            <Route path="/dashboard" element={<div>Dashboard Content</div>} />
-          </Route>
-          
-          {/* Default redirect */}
-          <Route path="/" element={<Navigate to="/dashboard" replace />} />
-          <Route path="*" element={<Navigate to="/dashboard" replace />} />
-        </Routes>
-      </BrowserRouter>
-    </KeycloakProvider>
+    <>
+      <ConfirmDialog />
+      <ToastContainer
+        position="top-right"
+        autoClose={3500}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
+      <KeycloakProvider>
+        <AppRoutes />
+      </KeycloakProvider>
+    </>
   );
 };
 

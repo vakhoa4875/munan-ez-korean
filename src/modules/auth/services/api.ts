@@ -11,7 +11,7 @@ const api = axios.create({
 
 // Thêm interceptor để tự động thêm token vào request
 api.interceptors.request.use(
-  async (config) => {
+  async (config: any) => {
     // Cố gắng refresh token nếu gần hết hạn
     try {
       await keycloakInstance.updateToken(70);
@@ -28,7 +28,7 @@ api.interceptors.request.use(
     
     return config;
   },
-  (error) => {
+  (error: any) => {
     return Promise.reject(error);
   }
 );

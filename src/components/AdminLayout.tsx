@@ -7,13 +7,15 @@ import { Outlet, useNavigate } from "react-router-dom";
 import Footer from "./Footer";
 import { TopNavbar } from "./Navbar";
 import { RightSideBar } from "./Sidebar";
+import { useKeycloak } from "@/contexts/KeycloakContext";
 
 export default function AdminLayout() {
+  const { logout } = useKeycloak();
   const [visible, setVisible] = useState(false);
   const toggleSidebar = () => setVisible(!visible);
   const navigate = useNavigate();
   const [adminMenuItems] = useState<MenuItem[]>(createAdminMenuItems(navigate));
-  const [adminAvatarDropdownItems] = useState<MenuItem[]>(createAdminAvatarDropdownItems(navigate));
+  const [adminAvatarDropdownItems] = useState<MenuItem[]>(createAdminAvatarDropdownItems(navigate, logout));
 
   return (
     <div className="min-h-screen flex flex-col bg-white">

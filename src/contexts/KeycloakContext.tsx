@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode, useRef } from 'react';
 import keycloakInstance from '@/modules/auth/services/keycloak';
+import { confirmDialog } from 'primereact/confirmdialog';
 
 interface KeycloakContextProps {
   keycloak: typeof keycloakInstance;
@@ -103,6 +104,7 @@ export const KeycloakProvider: React.FC<KeycloakProviderProps> = ({ children }) 
         scope: 'openid profile email',
         // Chỉ hiển thị Google login
         idpHint: 'google',
+        // display: 'popup',
       });
       setIsAuthenticated(true);
     } catch (error) {
@@ -112,8 +114,19 @@ export const KeycloakProvider: React.FC<KeycloakProviderProps> = ({ children }) 
 
   // Hàm logout
   const logout = () => {
-    keycloakInstance.logout({ redirectUri: window.location.origin });
-    setIsAuthenticated(false);
+    confirmDialog({
+      message: 'Bạn có chắc chắn muốn đăng xuất?',
+      header: 'Xác nhận đăng xuất',
+      icon: 'pi pi-exclamation-triangle',
+      rejectClassName: 'p-button-outlined',
+      acceptClassName: 'btn-primary ml-3!',
+      accept: () => {
+        keycloakInstance.logout({ redirectUri: window.location.origin });
+        setIsAuthenticated(false);
+      },
+      reject: () => {
+      },
+    });
   };
 
   // Hàm lấy token

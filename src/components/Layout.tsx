@@ -7,13 +7,15 @@ import { Outlet, useNavigate } from "react-router-dom";
 import Footer from "./Footer";
 import { TopNavbar } from "./Navbar";
 import { RightSideBar } from "./Sidebar";
+import { useKeycloak } from "@/contexts/KeycloakContext";
 
 export default function Layout() {
+  const { logout } = useKeycloak();
   const [visible, setVisible] = useState(false);
   const toggleSidebar = () => setVisible(!visible);
   const navigate = useNavigate();
   const [menuItems] = useState<MenuItem[]>(createMenuItems(navigate));
-  const [avatarDropdownItems] = useState<MenuItem[]>(createAvatarDropdownItems(navigate));
+  const [avatarDropdownItems] = useState<MenuItem[]>(createAvatarDropdownItems(navigate, logout));
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
