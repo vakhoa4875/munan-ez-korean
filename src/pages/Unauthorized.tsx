@@ -1,14 +1,14 @@
 import { Button, Result } from 'antd';
 import { useNavigate } from 'react-router-dom';
 
-const NotFound = () => {
+const Unauthorized = () => {
   const navigate = useNavigate();
 
   return (
     <Result
-      status="404"
-      title="404"
-      subTitle="Xin lỗi, trang bạn đang tìm kiếm không tồn tại."
+      status="403"
+      title="403"
+      subTitle="Xin lỗi, bạn không được phép truy cập trang này."
       extra={
         <Button type="primary" onClick={() => navigate('/')}>
           Về Trang Chủ
@@ -18,4 +18,4 @@ const NotFound = () => {
   );
 };
 
-export default NotFound;
+export default Unauthorized;

@@ -10,10 +10,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@404pagez/react": "^0.1.1",
     "@tailwindcss/vite": "^4.0.9",
     "@types/keycloak-js": "^2.5.4",
     "animate.css": "^4.1.1",
+    "antd": "^5.24.9",
     "axios": "^1.9.0",
     "chart.js": "^4.4.9",
     "keycloak-js": "^26.2.0",

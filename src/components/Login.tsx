@@ -1,26 +1,24 @@
-import React from 'react';
 import { useKeycloak } from '@/contexts/KeycloakContext';
 import { Button } from 'primereact/button';
-import { Navigate } from 'react-router-dom';
+import React from 'react';
 
 const Login: React.FC = () => {
-  const { isAuthenticated, login } = useKeycloak();
-
-  // Nếu đã đăng nhập, chuyển hướng đến trang chính
-  if (isAuthenticated) {
-    return <Navigate to="/dashboard" replace />;
-  }
+  const { login } = useKeycloak();
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-      <div className="p-8 bg-white rounded-lg shadow-md">
-        <h1 className="text-2xl font-bold mb-6 text-center">Welcome to Our App</h1>
-        <Button 
-          label="Login with Google" 
-          icon="pi pi-google" 
-          className="p-button-raised w-full"
-          onClick={login}
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-[var(--light-blue)] to-[var(--light-rose)]">
+      <div className="p-8 bg-white rounded-lg shadow-xl w-96">
+        <h1 className="text-3xl font-bold mb-6 text-center text-gray-800">Cổng Quản Trị</h1>
+        <p className="text-gray-600 mb-8 text-center text-lg">Vui lòng đăng nhập để truy cập bảng điều khiển quản trị</p>
+        <Button
+          label="Đăng nhập bằng Google"
+          icon="pi pi-google"
+          className="p-button-outlined w-full"
+          onClick={() => login("/admin")}
         />
+        <div className="mt-4 text-center text-gray-500">
+          <p>Chỉ quản trị viên được ủy quyền mới có thể truy cập cổng này</p>
+        </div>
       </div>
     </div>
   );
