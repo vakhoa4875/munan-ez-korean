@@ -104,7 +104,7 @@ export const createMenuItems = (navigate: any): MenuItem[] => [
 ];
 
 // Menu dropdown cho avatar
-export const createAvatarDropdownItems = (navigate: any): MenuItem[] => [
+export const createAvatarDropdownItems = (navigate: any, logout: any): MenuItem[] => [
     {
         label: 'Khóa học của tôi',
         icon: 'pi pi-book',
@@ -118,12 +118,12 @@ export const createAvatarDropdownItems = (navigate: any): MenuItem[] => [
     {
         label: 'Đăng xuất',
         icon: 'pi pi-sign-out',
-        command: () => navigate('/dang-xuat')
+        command: () => logout()
     }
 ];
 
 // Menu dropdown cho avatar của admin
-export const createAdminAvatarDropdownItems = (navigate: any): MenuItem[] => [
+export const createAdminAvatarDropdownItems = (navigate: any, logout: any): MenuItem[] => [
     {
         label: 'Bảng điều khiển',
         icon: 'pi pi-th-large',
@@ -142,7 +142,7 @@ export const createAdminAvatarDropdownItems = (navigate: any): MenuItem[] => [
     {
         label: 'Đăng xuất',
         icon: 'pi pi-sign-out',
-        command: () => navigate('/dang-xuat')
+        command: () => logout()
     }
 ];
 

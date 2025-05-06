@@ -1,3 +1,4 @@
+import { useKeycloak } from '@/contexts/KeycloakContext';
 import { Avatar } from 'primereact/avatar';
 import { Button } from 'primereact/button';
 import { InputText } from 'primereact/inputtext';
@@ -14,8 +15,24 @@ interface TopNavbarProps {
 }
 
 export function TopNavbar({ toggleSidebar, menuItems, onSearch, avatarDropdownItems }: TopNavbarProps) {
+    const { isAuthenticated, login, keycloak } = useKeycloak();
     const menuRight = useRef<Menu>(null);
-
+    const getRightMenu = () => {
+        return isAuthenticated ? (
+            <>
+                <Avatar icon={!keycloak.tokenParsed?.picture ? "pi pi-user" : undefined}
+                    image={keycloak.tokenParsed?.picture || undefined}
+                    shape="circle"
+                    onClick={(event) => menuRight.current?.toggle(event)}
+                    aria-controls="popup_menu_right"
+                    aria-haspopup
+                    className='w-10! h-10!' />
+                <Menu model={avatarDropdownItems} popup ref={menuRight} id="popup_menu_right" />
+            </>
+        ) : (
+            <Button label="Đăng nhập" icon="pi pi-google" className="p-button-outlined" onClick={() => login()} />
+        );
+    };
     return (
         <div className="flex justify-between items-center px-4 py-3 bg-white shadow-md md:flex rounded-b-md sticky top-0 z-50">
             <div className="items-center flex gap-3">
@@ -27,8 +44,7 @@ export function TopNavbar({ toggleSidebar, menuItems, onSearch, avatarDropdownIt
             </div>
             <div className="flex items-center gap-2 ml-2">
                 <InputText placeholder="Tìm kiếm..." type="text" className="w-8rem sm:w-auto hidden standard:flex" onSubmit={(e) => onSearch(e)} />
-                <Avatar icon="pi pi-user" shape="circle" onClick={(event) => menuRight.current?.toggle(event)} aria-controls="popup_menu_right" aria-haspopup />
-                <Menu model={avatarDropdownItems} popup ref={menuRight} id="popup_menu_right" popupAlignment="right" />
+                {getRightMenu()}
             </div>
         </div>
     );
