@@ -30,10 +30,9 @@ export function TopNavbar({ toggleSidebar, menuItems, onSearch, avatarDropdownIt
                 <Menu model={avatarDropdownItems} popup ref={menuRight} id="popup_menu_right" />
             </>
         ) : (
-            <Button label="Đăng nhập" icon="pi pi-google" className="p-button-outlined" onClick={login} />
+            <Button label="Đăng nhập" icon="pi pi-google" className="p-button-outlined" onClick={() => login()} />
         );
     };
-
     return (
         <div className="flex justify-between items-center px-4 py-3 bg-white shadow-md md:flex rounded-b-md sticky top-0 z-50">
             <div className="items-center flex gap-3">

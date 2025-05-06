@@ -1,14 +1,15 @@
-import React, { createContext, useContext, useState, useEffect, ReactNode, useRef } from 'react';
 import keycloakInstance from '@/modules/auth/services/keycloak';
 import { confirmDialog } from 'primereact/confirmdialog';
+import React, { createContext, ReactNode, useContext, useEffect, useRef, useState } from 'react';
 
 interface KeycloakContextProps {
   keycloak: typeof keycloakInstance;
   initialized: boolean;
   isAuthenticated: boolean;
-  login: () => Promise<void>;
+  login: (path?: string) => Promise<void>;
   logout: () => void;
   getToken: () => Promise<string | undefined>;
+  getRoles: () => string[];
 }
 
 const KeycloakContext = createContext<KeycloakContextProps | undefined>(undefined);
@@ -29,10 +30,10 @@ export const KeycloakProvider: React.FC<KeycloakProviderProps> = ({ children }) 
       if (isInitializing.current) {
         return;
       }
-      
+
       // Đánh dấu đang khởi tạo
       isInitializing.current = true;
-      
+
       try {
         // Kiểm tra xem đã được khởi tạo chưa
         if (!keycloakInstance.authenticated) {
@@ -48,7 +49,7 @@ export const KeycloakProvider: React.FC<KeycloakProviderProps> = ({ children }) 
           if (authenticated) {
             setupTokenRefresh();
           }
-          
+
           setIsAuthenticated(authenticated);
         } else {
           setIsAuthenticated(true);
@@ -63,7 +64,7 @@ export const KeycloakProvider: React.FC<KeycloakProviderProps> = ({ children }) 
     };
 
     initKeycloak();
-    
+
     // Cleanup function
     return () => {
       // Nếu cần, thêm logic cleanup ở đây
@@ -94,13 +95,13 @@ export const KeycloakProvider: React.FC<KeycloakProviderProps> = ({ children }) 
   };
 
   // Hàm login với popup
-  const login = async (): Promise<void> => {
+  const login = async (path?: string): Promise<void> => {
     try {
       await keycloakInstance.login({
         // Sử dụng popup thay vì redirect
         action: 'login',
         prompt: 'login',
-        redirectUri: window.location.origin,
+        redirectUri: path ? window.location.origin + path : window.location.origin + '/',
         scope: 'openid profile email',
         // Chỉ hiển thị Google login
         idpHint: 'google',
@@ -143,6 +144,18 @@ export const KeycloakProvider: React.FC<KeycloakProviderProps> = ({ children }) 
     }
   };
 
+  // Hàm lấy roles của user
+  const getRoles = (): string[] => {
+    try {
+      // Lấy roles từ realm_access của keycloak
+      const roles = keycloakInstance.realmAccess?.roles || [];
+      return roles;
+    } catch (error) {
+      console.error('Failed to get roles:', error);
+      return [];
+    }
+  };
+
   const value = {
     keycloak: keycloakInstance,
     initialized,
@@ -150,6 +163,7 @@ export const KeycloakProvider: React.FC<KeycloakProviderProps> = ({ children }) 
     login,
     logout,
     getToken,
+    getRoles,
   };
 
   return (
