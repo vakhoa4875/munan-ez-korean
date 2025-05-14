@@ -190,13 +190,20 @@
   padding: 1rem 0.75rem !important;
 }
 
-#editor img {
-  max-height: 500px;
-  width: auto;
+.blog-container a, #editor a {
+  color: var(--light-blue);
+  cursor: pointer;
 }
 
-.blog-container a {
-  color: var(--light-blue);
+.blog-container a:hover, #editor a:hover {
+  color: var(--light-rose);
+}
+
+.blog-container img, #editor img {
+  max-height: 72dvh;
+  width: auto;
+  margin-block: 0.5rem;
+  object-fit: cover;
 }
 
 .p-button.p-button-outlined {
