@@ -5,13 +5,11 @@ import YouTube from "react-youtube";
 import "animate.css";
 import { useLocation } from "react-router-dom";
 import { Video } from "@/types/Video";
-import { start } from "repl";
 
 export default function CourseWatchVideo() {
 
   const location = useLocation();
   const video = location.state?.video;
-  const seekTime = location.state?.seekTime || 0;
 
   if (!video) {
     return <p>Không tìm thấy video. Vui lòng chọn một video từ danh sách.</p>;
@@ -222,7 +220,7 @@ export default function CourseWatchVideo() {
                   {video.title}
                 </h3>
                 <p className="text-xs text-gray-600">Xem ngay</p>
-                
+
               </div>
             </div>
           ))}
