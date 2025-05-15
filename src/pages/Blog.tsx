@@ -4,6 +4,7 @@ import RelatedPosts from '@/modules/blog/components/RelatedPosts';
 import { useBlog } from '@/modules/blog/hooks/useBlog'; // You'll need to create this hook
 import { BlogPost } from '@/modules/blog/types/blog.types';
 import React from 'react';
+import '@/styles/editor.css';   
 import { useParams } from 'react-router-dom';
 
 const Blog: React.FC<{ previewedBlogPost?: BlogPost }> = ({ previewedBlogPost }) => {
@@ -38,9 +39,9 @@ const Blog: React.FC<{ previewedBlogPost?: BlogPost }> = ({ previewedBlogPost })
 
             {/* Content Section */}
             <section className="mb-12 blog-container">
-                <div className="bg-white rounded-lg shadow-sm p-8">
+                <div className="bg-white rounded-lg shadow-sm p-8 ql-snow">
                     <div
-                        className="prose prose-lg max-w-none"
+                        className="prose prose-lg max-w-none ql-editor"
                         dangerouslySetInnerHTML={{ __html: blogPost.content }}
                     />
                 </div>
