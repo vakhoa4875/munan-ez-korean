@@ -5,11 +5,13 @@ import YouTube from "react-youtube";
 import "animate.css";
 import { useLocation } from "react-router-dom";
 import { Video } from "@/types/Video";
+import { start } from "repl";
 
 export default function CourseWatchVideo() {
 
   const location = useLocation();
-  const video = location.state?.video as Video; // Lấy video từ state
+  const video = location.state?.video;
+  const seekTime = location.state?.seekTime || 0;
 
   if (!video) {
     return <p>Không tìm thấy video. Vui lòng chọn một video từ danh sách.</p>;
@@ -38,15 +40,13 @@ export default function CourseWatchVideo() {
       id: 1,
       title: "Bài học 1: Giới thiệu về tiếng Hàn",
       videoId: "SJXcYilt2a4",
-      thumbnail: "/thumbnail/hq720.jpg",
       description:
         "Trong bài học này, bạn sẽ được giới thiệu về tiếng Hàn và cách học hiệu quả.",
     },
     {
       id: 2,
       title: "Bài học 2: Học bảng chữ cái tiếng Hàn",
-      videoId: "SJXcYilt2a4",
-      thumbnail: "/thumbnail/hq720.jpg",
+      videoId: "aoiXvOkOjW0",
       description:
         "Trong bài học này, bạn sẽ được học bảng chữ cái tiếng Hàn và cách phát âm.",
     },
@@ -54,7 +54,6 @@ export default function CourseWatchVideo() {
       id: 3,
       title: "Bài học 3: Ngữ pháp cơ bản",
       videoId: "SJXcYilt2a4",
-      thumbnail: "/thumbnail/hq720.jpg",
       description:
         "Trong bài học này, bạn sẽ được tìm hiểu về ngữ pháp cơ bản trong tiếng Hàn.",
     },
@@ -62,7 +61,6 @@ export default function CourseWatchVideo() {
       id: 4,
       title: "Bài học 4: Giao tiếp cơ bản",
       videoId: "SJXcYilt2a4",
-      thumbnail: "/thumbnail/hq720.jpg",
       description:
         "Trong bài học này, bạn sẽ được học cách giao tiếp cơ bản trong tiếng Hàn.",
     },
@@ -183,7 +181,7 @@ export default function CourseWatchVideo() {
           />
           <Button
             label="Gửi"
-            className="p-button-primary"
+            className="btn-primary"
             onClick={() => handleAddComment("Nội dung bình luận")}
           />
           <div className="mt-6 space-y-4">
@@ -212,21 +210,24 @@ export default function CourseWatchVideo() {
             <div
               key={video.id}
               className="flex items-center gap-4 cursor-pointer hover:bg-gray-100 p-2 rounded-lg transition-all duration-300 animate__animated animate__fadeIn"
-              onClick={() => handleVideoChange(video)} // Gọi hàm handleVideoChange
+              onClick={() => handleVideoChange(video)}
             >
               <img
-                src={video.thumbnail}
+                src={`https://img.youtube.com/vi/${video.videoId}/hqdefault.jpg`}
                 alt={video.title}
-                className="w-32 h-20 object-cover rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
+                className="w-32 h-20 object-cover rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 flex-shrink-0"
               />
-              <div>
-                <h3 className="text-sm font-semibold">{video.title}</h3>
+              <div className="flex-1 min-w-0">
+                <h3 className="text-sm font-semibold line-clamp-2" title={video.title}>
+                  {video.title}
+                </h3>
                 <p className="text-xs text-gray-600">Xem ngay</p>
               </div>
             </div>
           ))}
         </div>
       </div>
+
     </div>
   );
 }
