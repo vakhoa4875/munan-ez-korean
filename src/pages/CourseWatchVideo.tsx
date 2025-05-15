@@ -222,6 +222,7 @@ export default function CourseWatchVideo() {
                   {video.title}
                 </h3>
                 <p className="text-xs text-gray-600">Xem ngay</p>
+                
               </div>
             </div>
           ))}
