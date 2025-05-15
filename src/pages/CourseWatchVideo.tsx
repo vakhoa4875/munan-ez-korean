@@ -221,7 +221,7 @@ export default function CourseWatchVideo() {
                 <h3 className="text-sm font-semibold line-clamp-2" title={video.title}>
                   {video.title}
                 </h3>
-                <p className="text-xs text-gray-600">Xem ngay x</p>
+                <p className="text-xs text-gray-600">Xem ngay</p>
               </div>
             </div>
           ))}
