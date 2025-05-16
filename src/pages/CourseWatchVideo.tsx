@@ -1,13 +1,12 @@
-import { InputTextarea } from "primereact/inputtextarea";
 import { Button } from "primereact/button";
 import { useState, useEffect, useCallback } from "react";
 import YouTube from "react-youtube";
 import "animate.css";
 import { useLocation } from "react-router-dom";
 import { Video } from "@/types/Video";
+import { Comment } from "@/types/Comment";
 
 export default function CourseWatchVideo() {
-
   const location = useLocation();
   const video = location.state?.video;
 
@@ -15,23 +14,72 @@ export default function CourseWatchVideo() {
     return <p>Không tìm thấy video. Vui lòng chọn một video từ danh sách.</p>;
   }
 
-  const [currentTime, setCurrentTime] = useState(0); // Thời gian hiện tại của video
-  const [hasStarted, setHasStarted] = useState(false); // Cờ để kiểm soát việc áp dụng thời gian
-
-  const [comments, setComments] = useState([
+  // State cho bình luận và reply
+  const [comments, setComments] = useState<Comment[]>([
     {
       id: 1,
       avatar: "/avatar-default.jpg",
       name: "Nguyễn Văn A",
       content: "Video rất hữu ích, cảm ơn!",
+      replies: [],
     },
     {
       id: 2,
       avatar: "/avatar-default.jpg",
       name: "Trần Thị B",
       content: "Mong chờ bài học tiếp theo!",
+      replies: [],
     },
   ]);
+
+  const [commentInput, setCommentInput] = useState("");
+  const [replyInputs, setReplyInputs] = useState<{ [key: number]: string }>({});
+  const [showReplyInput, setShowReplyInput] = useState<{ [key: number]: boolean }>({});
+
+  const [currentTime, setCurrentTime] = useState(0); // Thời gian hiện tại của video
+  const [hasStarted, setHasStarted] = useState(false); // Cờ để kiểm soát việc áp dụng thời gian
+
+  // Thêm bình luận mới
+  const handleAddComment = () => {
+    if (!commentInput.trim()) return;
+    setComments((prev) => [
+      {
+        id: prev.length + 1,
+        avatar: "/avatar-default.jpg",
+        name: "Bạn",
+        content: commentInput,
+        replies: [],
+      },
+      ...prev,
+    ]);
+    setCommentInput("");
+  };
+
+  // Thêm reply cho comment
+  const handleAddReply = (commentId: number) => {
+    const replyContent = replyInputs[commentId]?.trim();
+    if (!replyContent) return;
+    setComments((prev) =>
+      prev.map((c) =>
+        c.id === commentId
+          ? {
+            ...c,
+            replies: [
+              {
+                id: (c.replies?.length || 0) + 1,
+                avatar: "/avatar-default.jpg",
+                name: "Bạn",
+                content: replyContent,
+              },
+              ...(c.replies || []),
+            ],
+          }
+          : c
+      )
+    );
+    setReplyInputs((prev) => ({ ...prev, [commentId]: "" }));
+    setShowReplyInput((prev) => ({ ...prev, [commentId]: false }));
+  };
 
   const videos: Video[] = [
     {
@@ -123,20 +171,6 @@ export default function CourseWatchVideo() {
     [getSavedTime, location.state]
   );
 
-  // Thêm bình luận
-  const handleAddComment = useCallback(
-    (content: string) => {
-      const newComment = {
-        id: comments.length + 1,
-        avatar: "/avatar-default.jpg",
-        name: "Người dùng mới",
-        content,
-      };
-      setComments([...comments, newComment]);
-    },
-    [comments]
-  );
-
   return (
     <div className="flex flex-col lg:flex-row gap-6 animate__animated animate__fadeIn">
       {/* Phần bên trái: Video và bình luận */}
@@ -161,43 +195,98 @@ export default function CourseWatchVideo() {
         <p className="text-gray-600 mt-2">{video.description}</p>
 
         {/* Phần bình luận */}
-        <div className="mt-6">
-          <h2 className="text-lg font-semibold mb-4">Bình luận</h2>
-          <InputTextarea
-            className="w-full mb-4"
-            rows={4}
-            placeholder="Viết bình luận của bạn..."
-            autoResize
-            onKeyDown={(e: React.KeyboardEvent<HTMLTextAreaElement>) => {
-              const target = e.target as HTMLTextAreaElement; // Ép kiểu e.target
-              if (e.key === "Enter" && !e.shiftKey) {
-                e.preventDefault();
-                handleAddComment(target.value);
-                target.value = "";
-              }
-            }}
-          />
-          <Button
-            label="Gửi"
-            className="btn-primary"
-            onClick={() => handleAddComment("Nội dung bình luận")}
-          />
-          <div className="mt-6 space-y-4">
-            {comments.map((comment) => (
-              <div key={comment.id} className="flex items-start gap-4">
-                <img
-                  src={comment.avatar}
-                  alt={comment.name}
-                  className="w-10 h-10 rounded-full object-cover"
-                />
-                <div>
-                  <p className="font-semibold">{comment.name}</p>
-                  <p className="text-gray-600">{comment.content}</p>
-                </div>
-              </div>
-            ))}
+        {/* Thêm bình luận mới */}
+        <div className="mt-6 flex gap-2 items-start">
+          <img src="/avatar-default.jpg" alt="avatar" className="w-10 h-10 rounded-full object-cover" />
+          <div className="flex-1">
+            <textarea
+              className="w-full border rounded px-2 py-1 text-sm resize-none"
+              placeholder="Viết bình luận..."
+              value={commentInput}
+              onChange={(e) => setCommentInput(e.target.value)}
+              rows={2}
+            />
+            <div className="flex justify-end mt-1">
+              <Button
+                label="Bình luận"
+                className="btn-primary"
+                onClick={handleAddComment}
+                disabled={!commentInput.trim()}
+              />
+            </div>
           </div>
         </div>
+
+        <div className="mt-6 space-y-6">
+          {comments.map((comment) => (
+            <div key={comment.id} className="flex gap-3">
+              <img src={comment.avatar} alt={comment.name} className="w-10 h-10 rounded-full object-cover" />
+              <div className="flex-1">
+                <div className="bg-gray-100 rounded-lg px-3 py-2">
+                  <span className="font-semibold">{comment.name}</span>
+                  <p className="text-gray-700">{comment.content}</p>
+                </div>
+                <div className="flex items-center gap-2 mt-1">
+                  <button
+                    className="text-xs text-blue-600 hover:underline"
+                    onClick={() =>
+                      setShowReplyInput((prev) => ({
+                        ...prev,
+                        [comment.id]: !prev[comment.id],
+                      }))
+                    }
+                  >
+                    Phản hồi
+                  </button>
+                </div>
+                {/* Reply input */}
+                {showReplyInput[comment.id] && (
+                  <div className="flex gap-2 mt-2">
+                    <img src="/avatar-default.jpg" alt="avatar" className="w-8 h-8 rounded-full object-cover" />
+                    <input
+                      type="text"
+                      className="border rounded px-2 py-1 text-sm flex-1"
+                      placeholder="Phản hồi bình luận..."
+                      value={replyInputs[comment.id] || ""}
+                      onChange={(e) =>
+                        setReplyInputs((prev) => ({
+                          ...prev,
+                          [comment.id]: e.target.value,
+                        }))
+                      }
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter" && replyInputs[comment.id]?.trim()) {
+                          handleAddReply(comment.id);
+                        }
+                      }}
+                    />
+                    <Button
+                      label="Gửi"
+                      className="btn-primary"
+                      onClick={() => handleAddReply(comment.id)}
+                      disabled={!replyInputs[comment.id]?.trim()}
+                    />
+                  </div>
+                )}
+                {/* Hiển thị replies */}
+                {comment.replies && comment.replies.length > 0 && (
+                  <div className="mt-2 pl-6 border-l border-gray-200 space-y-2">
+                    {comment.replies.map((reply) => (
+                      <div key={reply.id} className="flex gap-2">
+                        <img src={reply.avatar} alt={reply.name} className="w-8 h-8 rounded-full object-cover" />
+                        <div className="bg-gray-50 rounded-lg px-3 py-1 flex-1">
+                          <span className="font-semibold text-xs">{reply.name}</span>
+                          <p className="text-gray-700 text-xs">{reply.content}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+
       </div>
 
       {/* Phần bên phải: Danh sách video */}
