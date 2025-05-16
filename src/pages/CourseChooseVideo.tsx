@@ -144,7 +144,7 @@ export default function CourseChooseVideo() {
         {videos.map((video) => (
           <div
             key={video.id}
-            className="cursor-pointer hover:shadow-2xl hover:scale-105 transition-all duration-300 rounded-lg overflow-hidden bg-white border border-gray-200"
+            className="cursor-pointer hover:shadow-2xl hover:scale-105 transition-all duration-300 rounded-lg overflow-hidden bg-white border border-gray-200 flex flex-col"
             onClick={() => handleVideoClick(video)}
             onMouseEnter={() => handleMouseEnter(video.id)}
             onMouseLeave={() => handleMouseLeave(video.id)}
@@ -172,9 +172,14 @@ export default function CourseChooseVideo() {
                 )}
               </div>
             </div>
-            <div className="p-4">
-              <h2 className="text-lg font-semibold mb-2">{video.title}</h2>
-              <p className="text-sm text-gray-600">{video.description}</p>
+            <div className="p-4 flex-1 flex flex-col">
+              <h2
+                className="text-base md:text-lg font-semibold mb-2 line-clamp-2"
+                title={video.title}
+              >
+                {video.title}
+              </h2>
+              <p className="text-sm text-gray-600 line-clamp-2">{video.description}</p>
             </div>
           </div>
         ))}
