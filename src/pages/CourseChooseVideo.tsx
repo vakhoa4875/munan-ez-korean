@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate,useLocation } from "react-router-dom";
 import { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import { Video } from "@/types/Video";
@@ -9,9 +9,14 @@ const YOUTUBE_API_KEY = "AIzaSyAYJOWvBODGB7PgcC1UV10cyImhZST_H4s";
 
 export default function CourseChooseVideo() {
   const navigate = useNavigate();
+  const location = useLocation();
   const [durations, setDurations] = useState<{ [id: number]: number }>({});
   const [hoveredId, setHoveredId] = useState<number | null>(null);
   const [countdown, setCountdown] = useState<{ [id: number]: number }>({});
+
+    // Lấy tên khóa học từ url, ví dụ: /khoa-hoc/tieng-han-so-cap/chon-video
+  const match = location.pathname.match(/khoa-hoc\/([^/]+)/);
+  const khoahocUrl = match ? match[1] : "";
 
   // Danh sách video giả lập
   const videos: Video[] = [
@@ -20,26 +25,32 @@ export default function CourseChooseVideo() {
       title: "Bài học 1: Giới thiệu về tiếng Hàn",
       videoId: "UpVMRdyHXx0",
       description: "Trong bài học này, bạn sẽ được giới thiệu về tiếng Hàn.",
+      khoahoc: "tieng-han-so-cap",
     },
     {
       id: 2,
       title: "Bài học 2: Học bảng chữ cái tiếng Hàn",
       videoId: "aoiXvOkOjW0",
       description: "Học bảng chữ cái tiếng Hàn và cách phát âm.",
+      khoahoc: "tieng-han-so-cap",
     },
     {
       id: 3,
       title: "Bài học 3: Ngữ pháp cơ bản",
       videoId: "HkAB1Gavw1Y",
       description: "Tìm hiểu về ngữ pháp cơ bản trong tiếng Hàn.",
+      khoahoc: "tieng-han-so-cap",
     },
     {
       id: 4,
       title: "Bài học 4: Giao tiếp cơ bản",
       videoId: "9kaCAbIXuyg",
       description: "Học cách giao tiếp cơ bản trong tiếng Hàn.",
+      khoahoc: "tieng-han-trung-cap",
     },
   ];
+
+  const videosForCourse = videos.filter((v) => v.khoahoc === khoahocUrl);
 
   // Lấy thời lượng video thật từ YouTube API
   useEffect(() => {
@@ -141,7 +152,7 @@ export default function CourseChooseVideo() {
         Chọn Video
       </h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 animate__animated animate__fadeInUp">
-        {videos.map((video) => (
+        {videosForCourse.map((video) => (
           <div
             key={video.id}
             className="cursor-pointer hover:shadow-2xl hover:scale-105 transition-all duration-300 rounded-lg overflow-hidden bg-white border border-gray-200 flex flex-col"

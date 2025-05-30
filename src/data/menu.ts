@@ -17,6 +17,11 @@ export const createMenuItems = (navigate: any): MenuItem[] => [
         icon: 'pi pi-shop',
         items: [
             {
+                label: 'Xem tất cả khóa học',
+                icon: 'pi pi-list',
+                command: () => navigate('/khoa-hoc')
+            },
+            {
                 label: 'Tiếng Hàn sơ cấp',
                 icon: 'pi pi-language',
                 command: () => navigate('/khoa-hoc/tieng-han-so-cap')

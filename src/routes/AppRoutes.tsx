@@ -17,6 +17,7 @@ const BlogEditor = lazy(() => import("@/pages/BlogEditor"));
 const Blog = lazy(() => import("@/pages/Blog"));
 const About = lazy(() => import("@/pages/About"));
 const Contact = lazy(() => import("@/pages/Contact"));
+const Course = lazy(() => import("@/pages/Course"));
 const CourseSoCap = lazy(() => import("@/pages/CourseSoCap"));
 const CourseTrungCap = lazy(() => import("@/pages/CourseTrungCap"));
 const CourseCaoCap = lazy(() => import("@/pages/CourseCaoCap"));
@@ -32,6 +33,7 @@ const router = createBrowserRouter([
       { index: true, element: <Suspense fallback={<Loading />}><Home /></Suspense> },
       { path: "gioi-thieu", element: <Suspense fallback={<Loading />}><About /></Suspense> },
       { path: "lien-he", element: <Suspense fallback={<Loading />}><Contact /></Suspense> },
+      { path: "khoa-hoc", element: <Suspense fallback={<Loading />}><Course /></Suspense> },
       { path: "khoa-hoc/tieng-han-so-cap", element: <Suspense fallback={<Loading />}><CourseSoCap /></Suspense> },
       { path: "khoa-hoc/tieng-han-trung-cap", element: <Suspense fallback={<Loading />}><CourseTrungCap /></Suspense> },
       { path: "khoa-hoc/tieng-han-cao-cap", element: <Suspense fallback={<Loading />}><CourseCaoCap /></Suspense> },

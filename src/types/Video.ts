@@ -3,4 +3,5 @@ export interface Video {
   title: string;
   videoId: string;
   description: string;
+  khoahoc: string;
 }
